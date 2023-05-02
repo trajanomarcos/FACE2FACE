@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.body_index {
+    background-color: black;
+    background: rgba(0, 0, 0, 0.85) url(/public/assets/bg_index1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+
+.header {
+    background-color: rgb(29, 66, 138);
+}
+
+.ul-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.container {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    color: #F9F9F9;
+    padding: 10px;
+}
+
+.container ul li {
+    margin: 10px 15px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #F9F9F9;
+}
+
+.item-li-nav {
+    position: relative;
+    text-decoration: none;
+    color: #F9F9F9;
+    font-size: 16px;
+    margin: 0 10px;
+    padding-bottom: 5px;
+
+}
+
+.item-li-nav::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #f9f9f9;
+    transform-origin: left;
+    transition: 0.3s ease-in-out;
+}
+
+.item-li-nav:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #F9F9F9;
+}
+
+
+.button-index {
+    font-family: 'Poppins', sans-serif;
+    width: 130px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(14, 43, 107);
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    color: #F9F9F9;
+    font-size: 16px;
+}
+
+.button-index:hover {
+    background-color: #f9f9f9;
+    color: rgb(14, 43, 107);
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+ul img {
+    margin: 0px 10px;
+}
+
+.logo-index {
+    margin: 10px;
+    height: 50px;
+}
+
+.button_login {
+    background-color: #f9f9f9;
+    color: rgb(14, 43, 107);
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+/* Inicio Section_Login  */
+
+#div_erros_login {
+    display: none;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #f6f5f5;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 20px;
+    border: #D30529 3px solid;
+    padding: 20px;
+    margin-right: 10%;
+    margin-top: 3%;
+    justify-content: center;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.container-sectionlogin {
+    display: flex;
+    height: 81vh;
+    width: 100vw;
+    background-color: #D6D6D6;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card_login {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 550px;
+    background-color: rgb(235, 235, 235);
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.items_sec1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items_sec2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #404040;
+}
+
+.input_sec_login {
+
+    width: 350px;
+    height: 40px;
+    margin-top: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-indent: 10px;
+    border: 1px solid #d6d6d6;
+}
+
+.input_sec_login::placeholder {
+    font-size: 15px;
+}
+
+.img_logo_card {
+    margin-bottom: 8px;
+}
+
+
+.button_sec {
+    width: 350px;
+    height: 45px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border: 0px solid #404040;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+small {
+    font-size: 14px;
+}
+
+.small_01 {
+    margin-bottom: 36px;
+}
+
+.small_02 {
+
+    margin-top: 20px;
+}
+
+.linha {
+    border-top: 1px solid #404040;
+    margin-top: 20px;
+}
+
+.button_sec_login {
+    background-color: #D30529;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button_sec_cadastro {
+    color: white;
+    background-color: rgba(29, 66, 138, 0.65);
+    font-family: 'Poppins', sans-serif;
+}
+
+.button_sec_login:hover {
+    color: white;
+    background-color: #640011;
+    transition: 0.6s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button_sec_cadastro:hover {
+    color: white;
+    background-color: rgba(29, 66, 138, 1);
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.esqueceu_senha {
+    font-weight: bold;
+}
+
+.esqueceu_senha:hover {
+    cursor: pointer;
+}
+
+/* Fim Section */
+
+/* Inicio Footer */
+
+.footer {
+    background-color: rgb(29, 66, 138);
+    width: 100%;
+    height: 100px;
+}

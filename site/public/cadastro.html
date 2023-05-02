@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - F2F</title>
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Inicio Header-->
+    <header class="header">
+        <div class="container">
+            <div class="container-atributos">
+                <ul class="ul-nav">
+                    <img src="./assets/nba-F2F-03.png" class="logo-index" alt="Logo-Site"
+                        style="width: 80px;  margin-right: 25px;" :>
+                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
+                    <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
+                </ul>
+            </div>
+            <ul class="ul-nav">
+                <li>
+                    <a href="login.html"><button class="button-index button-login">Login</button></a>
+                </li>
+                <li>
+                    <a href="cadastro.html"><button class="button-index button-cadastro">Cadastre-se</button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!--Fim header-->
+    <div class="login">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container-sectionlogin">
+
+        <div class="card_login">
+            <div class="items_sec1">
+                <img src="assets/nba-F2F-01.png" alt="" style="width: 100px;" class="img_sec_cadastro">
+                <input class="input_login input_sec_login item_sec" placeholder="Nome Completo" id="nome_input">
+                <input class="input_email input_sec_login item_sec" placeholder="E-mail" id="email_input">
+                <input class="input_senha input_sec_login item_sec" placeholder="Senha" type="password"
+                    id="senha_input">
+                <input class="input_conf_senha input_sec_login item_sec" placeholder="Confirme sua senha"
+                    type="password" id="confirmacao_senha_input">
+                <select id="select_GOAT" class="item_sec">
+                    <option value="Erro">Quem é o melhor de todos os tempos?</option>
+                    <option value="Jordan">Michael Jordan 🐐</option>
+                    <option value="Kobe">Kobe Bryant 🐍</option>
+                    <option value="LeBron">LeBron James 👑</option>
+                </select>
+
+                <button class="button_sec_cadastro item_sec" onclick="cadastrar()">CRIAR NOVA CONTA</button>
+            </div>
+        </div>
+    </div>
+    <!-- Fim Section-->
+
+    <footer class="footer">
+
+
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var escolhaVar = select_GOAT.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "flex"
+            mensagem_erro.innerHTML = "Confira os campos!";
+
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                escolhaServer: escolhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

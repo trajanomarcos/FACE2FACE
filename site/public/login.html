@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - F2F</title>
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Inicio Header-->
+    <header class="header">
+        <div class="container">
+            <div class="container-atributos">
+                <ul class="ul-nav">
+                    <img src="./assets/nba-F2F-03.png" class="logo-index" alt="Logo-Site"
+                        style="width: 80px;  margin-right: 25px;" :>
+                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
+                    <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
+                </ul>
+            </div>
+            <ul class="ul-nav">
+                <li>
+                    <a href="/login.html"><button class="button-index button_login">Login</button></a>
+                </li>
+                <li>
+                    <a href="/cadastro.html"><button class="button-index button_cadastro">Cadastre-se</button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!--Fim do Header-->
+    <!-- Comeco Section-->
+
+    <div class="login">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container-sectionlogin">
+
+            <div class="card_login">
+                <div class="items_sec1">
+                    <img src="./assets/nba-F2F-01.png" class="img_logo_card" style="width: 100px;">
+                    <input class="input_login input_sec_login" placeholder="E-mail" id="email_input">
+                    <input class="input_senha input_sec_login" placeholder="Senha" type="password" id="senha_input">
+                    <button class="button_sec_login button_sec" onclick="entrar()">CONTINUAR</button>
+                    <small> Esqueceu sua senha? <a class="esqueceu_senha">Clique aqui!</a></small>
+                </div>
+
+                <div class="linha"></div>
+
+                <div class="items_sec2">
+                    <small class="small_02">Ainda nao tem conta?</small>
+                    <button class="button_sec_cadastro button_sec">CRIAR NOVA CONTA</button>
+                </div>
+            </div>
+        </div>
+        <!-- Fim Section-->
+
+        <footer class="footer">
+
+
+        </footer>
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "flex"
+            mensagem_erro.innerHTML = "Confira os campos!";
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 2000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                setInterval((e) => {
+
+                    mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o login!";
+                    cardErro.style.display = "block"
+
+                }, 1000);
+
+
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

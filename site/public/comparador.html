@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/public/assets/favicon/favicon.ico" type="image/x-icon">
+    <title>Compare - F2F</title>
+    <link rel="stylesheet" href="./css/comparador.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+
+        <div class="container">
+            <div class="container-atributos">
+                <ul class="ul-nav">
+                    <img src="./assets/nba-F2F-03.png" class="logo-index" alt="Logo-Site"
+                        style="width: 80px; margin-right: 30px;" :>
+                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="../public/comparador.html"><b>Comparador</b></a></li>
+                    <li><a class="item-li-nav" href="../public/curiosidades.html">Curiosidades</a></li>
+                </ul>
+            </div>
+            <ul class="ul-nav">
+                <li><a href="login.html" style=""><button class="button-index button-login">Login</button></a>
+                </li>
+                <li><a href="cadastro.html"><button class="button-index button-cadastro">Cadastre-se</button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container_input">
+
+        <div class="stats_jogador1">
+            <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1">
+            <button id="button_p1" class="button_players" onclick="BuscarP1(); ofBuscar()">
+                <i class="fa fa-search icon"></i></button>
+        </div>
+
+        <div class="stats_jogador2">
+            <input id="nomeJogador2" class="inputJogadores inputJogadores2" placeholder="Buscar jogador!">
+            <button id="button_p2" class="button_players" onclick="BuscarP2(); ofBuscar2()">
+                <i class="fa fa-search icon"></i></button>
+        </div>
+
+
+    </div>
+
+    <div class="container_all_cards">
+        <div class="container-card card01" id="container-card">
+
+            <div class="top-card1" id="top_card1">
+
+            </div>
+
+            <div class="infos-card1" id="infos_card1">
+
+            </div>
+        </div>
+        <div class="container-card card02" id="container-card">
+
+            <div class="top-card2" id="top_card2">
+
+
+            </div>
+
+            <div class="infos-card2" id="infos_card2">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="./js/nba.js"></script>
+<script src="./js/image.js"></script>
+<script>
+
+    function Limpar() {
+
+        p_text.innerHTML = "";
+        container_comparador.innerHTML = "";
+    }
+</script>

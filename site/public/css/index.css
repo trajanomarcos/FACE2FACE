@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body_index {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.85) url(/public/assets/bg_index1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+
+.header {
+    /* background-color: rgb(29, 66, 138); */
+    background: rgba(0,0,0,0)
+}
+
+.ul-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.container {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    color: #F9F9F9;
+    padding: 10px;
+}
+
+.container ul li {
+    margin: 10px 15px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #F9F9F9;
+}
+
+.item-li-nav {
+    position: relative;
+    text-decoration: none;
+    color: #F9F9F9;
+    font-size: 16px;
+    margin: 0 10px;
+    padding-bottom: 5px;
+
+}
+
+.item-li-nav::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #f9f9f9;
+    transform-origin: left;
+    transition: 0.3s ease-in-out;
+  }
+
+.item-li-nav:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #F9F9F9;
+}
+
+
+.button-index {
+    font-family: 'Poppins', sans-serif;
+    width: 130px;
+    height: 50px;
+    border-radius: 20px;
+    /* background-color: rgb(14, 43, 107); */
+    background: rgba(0,0,0,0);
+    border: 2px solid white;
+    color: #F9F9F9;
+    font-size: 16px;
+}
+
+.button-index:hover {
+    background-color: #f9f9f9;
+    color: rgb(14, 43, 107);
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+ul img{
+    margin: 0px 10px;
+}
+
+.logo-index{
+    margin: 10px;
+    height: 50px;
+}
+
+/* Section Principal */
+
+
+.section-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+}
+
+.titulo-principal{
+    font-size: 70px;
+    /* margin: 40px; */
+    font-weight: bold;
+    color: white;
+}
+
+.subtitulo-principal{
+
+    font: 50px;
+    margin: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.button_principal{
+    width: 400px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgb(14, 73, 157);
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    margin: 30px;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+.button_principal:hover{
+    
+    background-color: #F9F9F9;
+    transition: 0.5s;
+    cursor: pointer;
+    color: rgb(14, 73, 157);
+    font-weight: bold;
+}
+
+
