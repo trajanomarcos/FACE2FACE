@@ -6,7 +6,7 @@
 .body_index {
     font-family: 'Poppins', sans-serif;
     background-color: black;
-    background: rgba(0, 0, 0, 0.85) url(/public/assets/bg_index1.jpeg);
+    background: rgba(0, 0, 0, 0.85) url(/assets/bg_index1.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: darken;
