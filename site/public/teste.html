@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - F2F</title>
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/teste.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!--Inicio Header-->
+    <header class="header">
+        <div class="container">
+            <div class="container-atributos">
+                <ul class="ul-nav">
+                    <img src="./assets/nba-F2F-02.png" class="logo-index" alt="Logo-Site"
+                        style="width: 80px;  margin-right: 25px;" :>
+                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
+                    <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
+                </ul>
+            </div>
+            <ul class="ul-nav">
+                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                    <a href="#"><button class="button-index button_login"
+                            style="width: 180px; align-items: center; display: flex; justify-content: center;"><img
+                                src="/assets/image 4.svg" alt="" style="width: 35px;">Meu perfil</button></button></a>
+                </li>
+                <li>
+                    <a onclick="limparSessao()"><button class="button-logout"><i class="fa fa-sign-out"
+                                aria-hidden="true"></i></button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="full_card" id="card">
+        <div class="card_profile">
+            <img src="/assets/image 4.svg" alt="" style="width: 75px;">
+            <a style="cursor: pointer; text-decoration: none; color: black;" href="change_profile.html">
+                <h4 class="editarperfil">Editar perfil</h4>
+            </a>
+            <h5 class="data_registro">Ativo desde:<span id="dt_registo"></span>08/05/2023</h5>
+            <button onclick="Fechar()" class="button_card_profile">Fechar</button>
+        </div>
+    </div>
+    <div class="container-main">
+
+        <div class="container-graf">
+            <h2 class="titlegraf">
+                Who is the GOAT?
+            </h2>
+            <p class="pgraft">
+                Por muitas vezes nos da 2F2 entramos em um debate de quem seria o verdadeiro GOAT,
+                o melhor de todos os tempos. Baseado nas escolhas dos nossos usuarios temos que:
+            </p>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function ChangeProfile() {
+
+        card.style.display = "flex";
+        card.style.position = "absolute";
+    }
+
+    function Fechar() {
+
+        card.style.display = "none";
+    }
+
+    function limparSessao() {
+        // aguardar();
+        sessionStorage.clear();
+
+        // finalizarAguardar();
+        window.location = "../index.html";
+    }
+</script>
