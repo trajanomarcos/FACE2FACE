@@ -157,8 +157,8 @@ ul img {
 
     background-color: #0E499D;
     border: none;
-    width: 6vw;
-    height: 6.6vh;
+    width: 4vw;
+    height: 50px;
     border-radius: 20px;
     font-size: 18px;
     color: white;
@@ -184,13 +184,29 @@ ul img {
     background-color: #0E499D;
     display: flex;
     justify-content: center;
+    color: white;
 }
 
 .container-graf{
-    padding: 10vh;
+    padding: 8vh 0;
     height: 90vh;
-    width: 60vw;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container-main img{
+
+    margin: 2vh;
+    background-color: #0E499D;
+}
+
+.container-main h2{
+    font-size: 40px;
+    margin: 2%;
+}
+
+.container-main p{
+    width: 85%;
 }
