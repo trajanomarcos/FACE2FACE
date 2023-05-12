@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - F2F</title>
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/teste.css">
     <script src="../js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(),ShowImgProfile()">
     <!--Inicio Header-->
     <header class="header">
         <div class="container">
@@ -33,8 +32,8 @@
             <ul class="ul-nav">
                 <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
                     <a href="#"><button class="button-index button_login"
-                            style="width: 180px; align-items: center; display: flex; justify-content: center;"><img
-                                src="/assets/image 4.svg" alt="" style="width: 35px;">Meu perfil</button></button></a>
+                            style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
+                            <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
                 </li>
                 <li>
                     <a onclick="limparSessao()"><button class="button-logout"><i class="fa fa-sign-out"
@@ -45,7 +44,7 @@
     </header>
     <div class="full_card" id="card">
         <div class="card_profile">
-            <img src="/assets/image 4.svg" alt="" style="width: 75px;">
+            <span id="img_profile" style="display: flex;"></span>
             <a style="cursor: pointer; text-decoration: none; color: black;" href="change_profile.html">
                 <h4 class="editarperfil">Editar perfil</h4>
             </a>
@@ -78,10 +77,38 @@
 
 <script>
 
+    function ShowImgProfile(){
+
+        var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
+
+        if(escolha == "Jordan"){
+
+            img_nav_profile.innerHTML = `<img src="/assets/image 6 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
+
+            img_profile.innerHTML = `<img src="/assets/image 6 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+
+        } else if(escolha == "Lebron"){
+
+            img_nav_profile.innerHTML = `<img src="/assets/image 7 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
+
+            img_profile.innerHTML = `<img src="/assets/image 7 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+
+
+        } else if(escolha == "Kobe"){
+
+            img_nav_profile.innerHTML = `<img src="/assets/image 8 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
+            img_profile.innerHTML = `<img src="/assets/image 8 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+
+        } else {
+
+            console.log("Erro ao cadastrar profile picture")
+        }
+    }
+
     function ChangeProfile() {
 
         card.style.display = "flex";
-        card.style.position = "absolute";
+        card.style.position = "fixed";
     }
 
     function Fechar() {

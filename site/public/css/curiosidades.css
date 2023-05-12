@@ -19,6 +19,8 @@ body {
 
 .header {
     background-color: rgb(29, 66, 138);
+    position: fixed;
+    width: 100%;
 }
 
 .ul-nav {
@@ -121,6 +123,7 @@ ul img {
 }
 
 .curiosidades_all{
+    margin-top: 15vh;
     display: flex;
     width: 900px;
     align-items: center;
