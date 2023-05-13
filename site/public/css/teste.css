@@ -196,6 +196,7 @@ ul img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10vh        ;
 }
 
 .container-main img {
