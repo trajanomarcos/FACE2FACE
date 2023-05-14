@@ -27,7 +27,7 @@ function ofBuscar(){
 
                     <ul class="ul-infos-card">
                         <li>Nome: ${firstNameP} ${lastNameP}</li>
-                        <li>Season:${data.data[0].season}</li>
+                        <li>Season: ${data.data[0].season}</li>
                         <li>Rebotes: ${data.data[0].reb}</li>
                         <li>Assistencias: ${data.data[0].ast}</li>
                         <li>Roubos de Bola: ${data.data[0].stl}</li>
@@ -77,7 +77,7 @@ function ofBuscar2(){
 
                     <ul class="ul-infos-card">
                         <li>Nome: ${firstNameP} ${lastNameP}</li>
-                        <li>Season:${data.data[0].season}</li>
+                        <li>Season: ${data.data[0].season}</li>
                         <li>Rebotes: ${data.data[0].reb}</li>
                         <li>Assistencias: ${data.data[0].ast}</li>
                         <li>Roubos de Bola: ${data.data[0].stl}</li>

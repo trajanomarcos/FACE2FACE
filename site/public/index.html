@@ -14,22 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="body_index">
+<body class="body_index" onload="window.scroll = addBlur();">
     <!--Inicio Header-->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="container-atributos">
                 <ul class="ul-nav">
-                    <img src="./assets/nba-F2F-01.png" class="logo-index" alt="Logo-Site"
+                    <img src="./assets/nba-F2F-02.png" class="logo-index" alt="Logo-Site"
                         style="width: 80px;  margin-right: 25px;" :>
                     <li><a class="item-li-nav" href="index.html"><b>Inicio</b></a></li>
-                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
                     <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
                 </ul>
             </div>
             <ul class="ul-nav">
                 <li>
-                    <a href="login.html"><button class="button-index" >Login</button></a>
+                    <a href="login.html"><button class="button-index">Login</button></a>
                 </li>
                 <li>
                     <a href="cadastro.html"><button class="button-index">Cadastre-se</button></a>
@@ -38,15 +37,47 @@
         </div>
     </header>
     <!--Fim do Header-->
-    <div class="section-principal">
-        <h1 class="titulo-principal">NBA FACE TO FACE</h1>
-        <h2 class="subtitulo-principal">Compare os seus jogadores favoritos!</h2>
-        <button class="button_principal" onclick="toComp()">Comparar!</button>
+    <div class="section">
+        <div class="section-principal">
+            <h1 class="titulo-principal">NBA FACE TO FACE</h1>
+            <h2 class="subtitulo-principal">Cadastre-se em nosso site, e compare os seus jogadores favoritos!</h2>
+            <button class="button_principal" onclick="toComp()">Cadastrar</button>
+        </div>
     </div>
-    <!-- <div class="botao_scroll">
-        <button><i class="fa fa-sort-desc icon" style="background-color: white; width: 100px; height: 100px; font-size: 30px; align-items: center;"></i></button>
-    </div> -->
 
+    <div class="section-secundaria">
+        <div class="texts-secundaria">
+            <h1 class="titulo-secundaria">O que é NBA?</h1>
+            <p class="subtitulo-secundaria">
+                A <b style="font-size: 18px;">NBA</b>
+                (National Basketball Association) é a principal liga
+                profissional de
+                basquete masculino dos Estados Unidos e uma das mais importantes do mundo. Foi fundada em 1946 e
+                atualmente
+                conta com 30 equipes, divididas em duas conferências (Leste e Oeste) e seis divisões.
+            </p>
+
+            <div class="container-subtitulo" style="display: flex; align-items: center;">
+                <img src="./assets/nba_logo.png" class="img-container-subtitulo" alt="" srcset="" style="width: 20%;">
+                <p class="subtitulo-secundaria">A temporada regular da NBA ocorre entre outubro e abril, com cada equipe
+                    jogando
+                    82 jogos. As 16 equipes com os melhores registros de vitórias e derrotas em cada conferência avançam
+                    para os
+                    playoffs, onde disputam uma série de jogos eliminatórios até que as duas melhores equipes (uma de
+                    cada
+                    conferência) se enfrentem nas finais da NBA.
+                </p>
+            </div>
+
+            <p class="subtitulo-secundaria">A NBA é conhecida por ter alguns dos melhores jogadores de basquete do
+                mundo,
+                incluindo lendas como Michael Jordan, Kobe Bryant e LeBron James. Além disso, a liga é famosa por seus
+                jogos
+                de alta pontuação, jogadas espetaculares e uma atmosfera de entretenimento em torno dos jogos, incluindo
+                performances musicais e efeitos visuais.
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -55,6 +86,21 @@
 
     function toComp() {
 
-        window.location.href = 'comparador.html';
+        window.location.href = 'cadastro.html';
+    }
+
+    function addBlur() {
+
+        const nav = document.getElementById('header');
+        window.onscroll = function () {
+            if (window.scrollY >= 200) {
+                nav.classList.add("header-colored");
+                nav.classList.remove("header-transparent");
+            }
+            else {
+                nav.classList.add("header-transparent");
+                nav.classList.remove("header-colored");
+            }
+        };
     }
 </script>
