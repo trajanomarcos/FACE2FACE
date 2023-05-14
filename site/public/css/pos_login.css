@@ -233,6 +233,28 @@ ul img {
     height: 70vh;
 }
 
+.nav_profile {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 360px;
+}
+
+.profile-icon {
+
+    border-radius: 360px;
+}
+
+.loading-div {
+    width: 50px;
+    display: none;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
 .footer{
     background-color: rgb(29, 66, 138);
     margin-top: 50px;

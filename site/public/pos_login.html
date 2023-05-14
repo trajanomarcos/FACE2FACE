@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/pos_login.css">
+    <script src="../js/funcoes.js"></script>
     <title>User_Stats - 2F2</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="ShowImgProfile(), validarSessao()">
     <!--Inicio Header-->
     <header class="header">
         <div class="container">
@@ -86,21 +87,21 @@
 
         if (escolha == "Jordan") {
 
-            img_nav_profile.innerHTML = `<img src="/assets/image 6 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
+            img_nav_profile.innerHTML = `<img src="/assets/Jordan_1.svg" alt="" style="width: 35px;" class="nav_profile">`
 
-            img_profile.innerHTML = `<img src="/assets/image 6 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+            img_profile.innerHTML = `<img src="/assets/Jordan_1.svg" alt="" style="width: 80px;" class="profile-icon">`
 
-        } else if (escolha == "Lebron") {
+        } else if (escolha == "LeBron") {
 
-            img_nav_profile.innerHTML = `<img src="/assets/image 7 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
+            img_nav_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 35px;" class="nav_profile">`
 
-            img_profile.innerHTML = `<img src="/assets/image 7 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+            img_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 80px;" class="profile-icon">`
 
 
         } else if (escolha == "Kobe") {
 
-            img_nav_profile.innerHTML = `<img src="/assets/image 8 (1).svg" alt="" style="width: 35px;" class="nav_profile">`
-            img_profile.innerHTML = `<img src="/assets/image 8 (1).svg" alt="" style="width: 80px;" class="profile-icon">`
+            img_nav_profile.innerHTML = `<img src="/assets/Kobe_1.svg" alt="" style="width: 35px;" class="nav_profile">`
+            img_profile.innerHTML = `<img src="/assets/Kobe_1.svg" alt="" style="width: 80px;" class="profile-icon">`
 
         } else {
 
@@ -109,8 +110,6 @@
     }
 
     function toNextPage(){
-
-
 
     }
 

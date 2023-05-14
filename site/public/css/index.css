@@ -27,7 +27,7 @@
     backdrop-filter: blur(8px);
 }
 
-.header-colored{
+.header-colored {
     background-color: rgb(29, 66, 138)
 }
 
@@ -184,33 +184,34 @@ button a {
     justify-content: center;
 }
 
-.texts-secundaria{
+.texts-secundaria {
     display: flex;
     flex-direction: column;
     width: 50vw;
     align-items: center;
 }
 
-.titulo-secundaria{
+.titulo-secundaria {
 
     font-size: 60px;
     color: white;
     padding: 5vh;
 }
 
-.subtitulo-secundaria{
-    color:#F9F9F9;
+.subtitulo-secundaria {
+    color: #F9F9F9;
     font-size: 16px;
     padding: 10px;
+    text-align: justify;
 }
 
-.container-subtitulo{
+.container-subtitulo {
     display: flex;
     flex-direction: row-reverse;
 
 }
 
-.img-container-subtitulo{
+.img-container-subtitulo {
 
     padding: -20px;
 }
