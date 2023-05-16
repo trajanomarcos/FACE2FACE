@@ -177,6 +177,8 @@ ul img {
     border-top: 1px solid #404040;
 }
 
+
+
 .input_sec_login {
 
     width: 350px;
@@ -186,6 +188,14 @@ ul img {
     font-size: 16px;
     text-indent: 10px;
     border: 1px solid #d6d6d6;
+}
+
+.valid{
+    border: 2px solid rgb(0, 182, 0);
+}
+
+.error{
+    border: 2px solid red;
 }
 
 .input_sec_login::placeholder {
