@@ -20,7 +20,12 @@ nome varchar(50),
 email varchar(50),
 senha varchar(8),
 escolha varchar(50),
-datains datetime default current_timestamp
+datains varchar(50)
+);
+
+create table JogadorFav(
+    idJogador int primary auto_increment,
+    jogador varchar(45)
 );
 
 drop table usuario;

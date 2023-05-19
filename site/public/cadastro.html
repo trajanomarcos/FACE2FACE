@@ -56,9 +56,9 @@
                     type="password" id="confirmacao_senha_input">
                 <select id="select_GOAT" class="item_sec">
                     <option value="Erro" selected="true" disabled="disabled">Quem é o melhor de todos os tempos?</option>
-                    <option value="Jordan">Michael Jordan 🐐</option>
-                    <option value="Kobe">Kobe Bryant 🐍</option>
-                    <option value="LeBron">LeBron James 👑</option>
+                    <option value="3">Michael Jordan 🐐</option>
+                    <option value="2">Kobe Bryant 🐍</option>
+                    <option value="1">LeBron James 👑</option>
                 </select>
 
                 <button class="button_sec_cadastro item_sec" onclick="cadastrar()">CRIAR NOVA CONTA</button>
@@ -110,7 +110,7 @@
                 emailServer: emailVar,
                 senhaServer: senhaVar,
                 escolhaServer: escolhaVar,
-            })
+            })  
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);

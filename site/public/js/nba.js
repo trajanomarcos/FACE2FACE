@@ -100,4 +100,8 @@ function ofBuscar2(){
     })
 }
 
+button.addEventListener('focus', (e)=>{
+
+    
+})
 

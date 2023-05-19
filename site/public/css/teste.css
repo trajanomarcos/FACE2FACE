@@ -235,3 +235,20 @@ ul img {
     height: 50px;
     width: 50px;
 }
+
+.container-chart{
+    width: 60vw;
+    height: 60vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+    margin-top: 5vh;
+    border-radius: 50px;
+}
+
+.graph{
+    width: 50vw;
+    height: 50vh;
+}
