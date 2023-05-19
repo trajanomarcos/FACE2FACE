@@ -4,9 +4,6 @@ use projetopessoal;
 select * from usuario;
 
 select date_format(datains, '%d-%m-%Y') from usuario;
-insert into usuario values (null, 'OI', 'oi@oi.com.br', 'oioi', 'Jordan',date_format(now(),'%d-%m-%Y'));
-
-insert into usuario values(null, 'Marcos', 'marcos@email.com', '123', 'Jordan','10-03-2023'); 
 
 alter table usuario modify column datains varchar(45);
 
@@ -14,18 +11,27 @@ select nomeusuario from usuario where escolha = 'Lebron';
 
 desc usuario;
 
+insert into jogadorFav values
+	(null, 'Lebron'),
+    (null, 'Kobe'),
+    (null, 'Jordan');
+    
+insert into usuario values (null, 'marcos', 'marcos@email.com', '123', date_format(now(),'%d-%m-%Y'), 1);
+insert into usuario values (null, 'marcoss', 'marcos1@email.commarcos1@email.com', '123', date_format(now(),'%d-%m-%Y'), 3);
+
 create table Usuario(
 id int primary key auto_increment,
 nome varchar(50),
 email varchar(50),
 senha varchar(8),
-escolha varchar(50),
-datains varchar(50)
+datains varchar(50),
+fkEscolha INT,
+CONSTRAINT fkEscolhaU FOREIGN KEY (fkEscolha) REFERENCES jogadorFav(idJogador)
 );
 
 create table JogadorFav(
-    idJogador int primary auto_increment,
-    jogador varchar(45)
+idJogador int primary key auto_increment,
+jogador varchar(45)
 );
 
-drop table usuario;
+select count(usuario.fkEscolha) as Voto, JogadorFav.Jogador as Jogadores from usuario join jogadorfav on fkEscolha = idJogador group by usuario.fkEscolha;
