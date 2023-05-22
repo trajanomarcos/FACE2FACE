@@ -2,7 +2,7 @@
 const nomeJogador1 = document.getElementById("nomeJogador1");
 const nomeJogador2 = document.getElementById("nomeJogador2");
 
-function BuscarP1(){
+function BuscarP1(nomePlayer){
 
     let jogadorBuscado = nomeJogador1.value;
     var text = document.getElementById("p_text");
@@ -17,6 +17,10 @@ function BuscarP1(){
 
             function AcharJogador(name) {
 
+                name = nomePlayer
+
+                console.log(name)
+                
                 var contador = 0;
                 var encontrado = false;
 

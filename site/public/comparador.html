@@ -55,8 +55,11 @@
     <div class="container_input">
 
         <div class="stats_jogador1">
-            <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1">
-            <button id="button_p1" class="button_players" onclick="BuscarP1(); ofBuscar()">
+            <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1" list="datalist" onchange="ofBuscar()" autocomplete="off">
+            <datalist id="datalist" class="inputJogadores">
+            </datalist>
+
+            <button id="button_p1" class="button_players" onclick="SearchPlayer()">
                 <i class="fa fa-search icon"></i></button>
         </div>
 

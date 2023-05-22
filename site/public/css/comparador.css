@@ -201,7 +201,7 @@ ul img {
 
 .container-card:hover {
     transition: 0.5s;
-    transform: scale(1.05);
+    transform: scale(1.02);
     cursor: pointer;
 }
 
@@ -225,7 +225,6 @@ ul img {
     font-size: 20px;
     top: 0;
     right: 0;
-    z-index: 2;
     left: -35px;
 }
 
@@ -273,7 +272,7 @@ textarea:focus, input:focus{
     justify-content: end;
     position: absolute;
     display: none;
-    left: 62vw;
+    left: 55vw;
     top: 10vh;
 }
 
@@ -345,4 +344,10 @@ textarea:focus, input:focus{
 .button-index{
     background-color: #F9F9F9;
     color: #0E499D;
+}
+
+datalist .option{
+
+    color: #0E499D;
+    background-color: #850000;
 }

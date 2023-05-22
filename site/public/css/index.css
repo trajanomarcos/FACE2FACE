@@ -21,6 +21,8 @@
     width: 100vw;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
+    transition: all 0.3s;
+    z-index: 2;
 }
 
 .header-transparent {
@@ -227,8 +229,63 @@ button a {
     border-radius: 360px;
 }
 
-.button-top:hover{
+.button-top:hover {
 
     background-color: #d74059;
     cursor: pointer;
+}
+
+.f2f {
+    background-color: black;
+    background: rgb(0, 0, 0, 0.6)url(/assets/Jordan_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.f2f-texts {
+    display: flex;
+    flex-direction: column;
+    color: #F9F9F9;
+    width: 40%;
+    margin-left: 40vw;
+    text-align: justify;
+}
+
+.titulo-terciario{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+
+.bolha {
+    background-color: black;
+    background: rgb(0, 0, 0, 0.6)url(/assets/Lebron_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    filter: grayscale(0);
+}
+
+.bolha-texts {
+    display: flex;
+    flex-direction: column;
+    color: #F9F9F9;
+    width: 30%;
+    margin-right: 40vw;
+    text-align: justify;
+}
+
+.titulo-terciario-bolha{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
 }
