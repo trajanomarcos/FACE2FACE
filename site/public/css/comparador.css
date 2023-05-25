@@ -346,8 +346,34 @@ textarea:focus, input:focus{
     color: #0E499D;
 }
 
-datalist .option{
 
-    color: #0E499D;
-    background-color: #850000;
+#box_search{
+    background-color: #F9F9F9;
+    width: 200px;
+    height:200px;
+    position: absolute;
+    margin-left: 70vh;
+    list-style: none;
+    
+}
+
+#box_search2{
+
+    background-color: #F9F9F9;
+    width: 200px;
+    height:200px;
+    position: absolute;
+    margin-left: 170vh;
+    list-style: none;
+}
+
+.item_search_ul{
+    padding: 10px;
+}
+
+.item_search_ul:hover{
+
+    cursor: pointer;
+    background-color: #e4e4e4;
+    border: 1px solid #bebebe;
 }

@@ -18,6 +18,7 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
 </head>
+
 <body onload="ShowImgProfile()">
     <!--Inicio Header-->
     <header class="header">
@@ -64,7 +65,7 @@
                 Por muitas vezes nos da 2F2 entramos em um debate de quem seria o verdadeiro GOAT,
                 o melhor de todos os tempos. Baseado nas escolhas dos nossos usuarios temos que:
             </p>
-
+            <div id="div_kpi"></div>
             <div class="container-chart">
                 <div class="graph">
                     <canvas id="myChart"></canvas>
@@ -145,7 +146,6 @@
         fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     plotarGrafico(resposta, idAquario);
 
                 });
@@ -163,7 +163,7 @@
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGrafico(resposta, idAquario) {
         console.log('iniciando plotagem do gráfico...');
-
+        var lista = JSON.stringify(resposta)
         var dados = {
             labels: [],
             datasets: [
@@ -177,12 +177,23 @@
             ]
         };
 
+        
+
+        var jogadorFavorito = []
+        var nomeJogador = ""
+        var pontuacaoJogador = 0
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.Jogadores);
             // dados.datasets[0].data.push(registro.Jogadores);
             dados.datasets[0].data.push(registro.Voto);
             console.log(registro.Voto)
+            // if (dados.datasets.data[i] >= pontuacaoJogador) {
+
+            //      pontuacaoJogador = dados.datasets.data[i]
+            //      nomeJogador = dados.labels
+            //      div_kpi.innerHTML = `Atualmente na F2F o ${nomeJogador}, é o GOAT!!! Com ${pontuacaoJogador} votos!`
+            // }
         }
 
         console.log(JSON.stringify(dados));
@@ -207,9 +218,7 @@
                         position: 'left',
                         id: 'y-totalpersonagens',
                         ticks: {
-                            beginAtZero: true,
-                            max: 16,
-                            min: 0
+                            beginAtZero: true
                         }
                     }, {
                         display: false,
@@ -223,7 +232,7 @@
         //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
         //     Para ajustar o "select", ajuste o comando sql em src/models
         function atualizarGrafico(idAquario, dados) {
-
+            alert('entrei')
             fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (novoRegistro) {
@@ -232,16 +241,14 @@
                         console.log(dados);
 
                         for (i = 0; i < novoRegistro.length; i++) {
+                            console.log('entrei')
                             var registro = novoRegistro[i];
                             // tirando e colocando valores no gráfico
                             dados.labels.shift(); // apagar o primeiro
-                            dados.labels.push(registro.personagem);// incluir um novo momento
+                            dados.labels.push(registro.voto);// incluir um novo momento
 
-                            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                            dados.datasets[0].data.push(registro.personagem); // incluir uma nova medida de umidade
-
-                            dados.datasets[1].data.shift();
-                            dados.datasets[1].data.push(registro.voto);
+                            dados.datasets[0].data.push(registro.voto);
+                            
                         }
 
                         window.myChart.update();

@@ -1,26 +1,18 @@
-
 const nomeJogador1 = document.getElementById("nomeJogador1");
 const nomeJogador2 = document.getElementById("nomeJogador2");
 
-function BuscarP1(nomePlayer){
+function BuscarP1(nome){
 
-    let jogadorBuscado = nomeJogador1.value;
-    var text = document.getElementById("p_text");
+    var jogadorBuscado2 = nome;
 
-    // Definindo o arquivo JSON a ser lido
-    const url = "../js/arquivo.json";
+    const url = "./js/arquivo.json";
 
-    // Fazendo uma requisição HTTP para o arquivo JSON usando o método fetch()
     fetch(url)
-        .then(response => response.json()) // Convertendo a resposta em um objeto JSON
+        .then(response => response.json()) 
         .then(data => {
 
             function AcharJogador(name) {
 
-                name = nomePlayer
-
-                console.log(name)
-                
                 var contador = 0;
                 var encontrado = false;
 
@@ -33,7 +25,7 @@ function BuscarP1(nomePlayer){
                         encontrado = true;
 
                         top_card1.innerHTML = `<img src="${imgUrl}" style="width:250px; height:180px"><br>`
-                        
+
                         // console.log(typeof data.players[contador].name)
 
                         break;
@@ -51,14 +43,14 @@ function BuscarP1(nomePlayer){
 
             }
 
-            console.log(AcharJogador(jogadorBuscado) + " Imagem");
+            console.log(AcharJogador(jogadorBuscado2) + " Imagem");
         })
 
 }
     
-function BuscarP2(){
+function BuscarP2(nome){
 
-    var jogadorBuscado2 = nomeJogador2.value;
+    var jogadorBuscado2 = nome;
 
     const url = "./js/arquivo.json";
 

@@ -55,22 +55,26 @@
     <div class="container_input">
 
         <div class="stats_jogador1">
-            <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1" list="datalist" onchange="ofBuscar()" autocomplete="off">
-            <datalist id="datalist" class="inputJogadores">
-            </datalist>
+            <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1">
 
-            <button id="button_p1" class="button_players" onclick="SearchPlayer()">
+            <button id="button_p1" class="button_players" onclick="ofBuscar1()">
                 <i class="fa fa-search icon"></i></button>
         </div>
 
         <div class="stats_jogador2">
             <input id="nomeJogador2" class="inputJogadores inputJogadores2" placeholder="Buscar jogador!">
-            <button id="button_p2" class="button_players" onclick="BuscarP2(); ofBuscar2()">
+            <button id="button_p2" class="button_players" onclick="ofBuscar2()">
                 <i class="fa fa-search icon"></i></button>
         </div>
 
 
     </div>
+
+        <ul id="box_search" class="display_none" style="overflow-y: scroll; display: none;">
+        </ul>
+
+        <ul id="box_search2" class="display_block" style="overflow-y: scroll; display: none;">
+        </ul>
 
     <div class="container_all_cards">
         <div class="container-card card01" id="container-card">
