@@ -107,11 +107,13 @@ function ofBuscar2() {
             var firstNameP = (data.data[i].first_name);
             var lastNameP = (data.data[i].last_name);
 
+            var currentTeam = (data.data[i].team.full_name)
+
             var fullname = (firstNameP + " " + lastNameP);
 
             console.log(fullname)
 
-            box_search2.innerHTML += `<li onclick="SearchPlayer2(${idplayer}, \'${fullname}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            box_search2.innerHTML += `<li onclick="SearchPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
         if(box_search2.style.display == 'none'){
@@ -131,7 +133,7 @@ function ofBuscar2() {
     
 }
 
-function SearchPlayer2(idplayer, fullname) {
+function SearchPlayer2(idplayer, fullname, currentTeam) {
 
     // var nomePlayer = nomeJogador1.text
     // var allItems = nomeJogador1.value.split("-");
@@ -152,7 +154,7 @@ function SearchPlayer2(idplayer, fullname) {
 
                 <ul class="ul-infos-card">
                     <li>Nome: ${fullname}
-                    <li>Time: ${data.data[0].team}</li>
+                    <li>Time: ${currentTeam}</li>
                     <li>Season: ${data.data[0].season}</li>
                     <li>Rebotes: ${data.data[0].reb}</li>
                     <li>Assistencias: ${data.data[0].ast}</li>

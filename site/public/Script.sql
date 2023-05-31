@@ -23,7 +23,7 @@ create table Usuario(
 id int primary key auto_increment,
 nome varchar(50),
 email varchar(50),
-senha varchar(8),
+senha varchar(20),
 datains varchar(50),
 fkEscolha INT,
 CONSTRAINT fkEscolhaU FOREIGN KEY (fkEscolha) REFERENCES jogadorFav(idJogador)

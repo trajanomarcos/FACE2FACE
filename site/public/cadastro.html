@@ -127,78 +127,53 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        fetch("/login/autenticar", {
+        // Enviando o valor da nova input
+        fetch("/login/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                escolhaServer: escolhaVar,
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+
+            console.log("resposta: ", resposta);
             if (resposta.ok) {
+                // cardErro.style.display = "block";
 
-                console.log(resposta + "RESPOSTA01");
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
                 swal({
-                    title: "Atenção",
-                    text: "Já existe uma conta com este email!",
-                    icon: "error",
+                    title: "Parabens!",
+                    text: "Cadastro realizado com sucesso! Redirecionando para tela de Login...",
+                    icon: "success",
                 });
 
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                // limparFormulario();
+                // finalizarAguardar();
             } else {
-
-                // Enviando o valor da nova input
-                fetch("/login/cadastrar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        // crie um atributo que recebe o valor recuperado aqui
-                        // Agora vá para o arquivo routes/usuario.js
-                        nomeServer: nomeVar,
-                        emailServer: emailVar,
-                        senhaServer: senhaVar,
-                        escolhaServer: escolhaVar,
-                    })
-                }).then(function (resposta) {
-
-                    console.log("resposta: ", resposta);
-
-                    if (resposta.ok) {
-                        // cardErro.style.display = "block";
-
-                        // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-                        swal({
-                            title: "Parabens!",
-                            text: "Cadastro realizado com sucesso! Redirecionando para tela de Login...",
-                            icon: "success",
-                        });
-
-                        setTimeout(() => {
-                            window.location = "login.html";
-                        }, "2000")
-
-                        // limparFormulario();
-                        // finalizarAguardar();
-                    } else {
-                        throw ("Houve um erro ao tentar realizar o cadastro!");
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                    // finalizarAguardar();
-                });
-
-                return false;
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
 
-        }
+        return false;
 
-    )}
+    }
 
     function sumirMensagem() {
-                cardErro.style.display = "none"
-            }
+        cardErro.style.display = "none"
+    }
 
 </script>

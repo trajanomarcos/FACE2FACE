@@ -2,6 +2,8 @@
 function validarSessao() {
     // aguardar();
 
+    AvisoJogadores()
+
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
     var insc_user = sessionStorage.DATAINS_USUARIO;
@@ -10,9 +12,8 @@ function validarSessao() {
     var dt_registo = document.getElementById("dt_registo")
 
     if (email != null && nome != null) {
-        window.alert(`Seja bem-vindo, ${nome}!`);
         b_usuario.innerHTML = nome;
-        dt_registo.innerHTML = insc_user.replaceAll("-","/");
+        dt_registo.innerHTML = insc_user.replaceAll("-", "/");
 
         // finalizarAguardar();
     } else {
@@ -23,7 +24,7 @@ function validarSessao() {
 function limparSessao() {
     // aguardar();
     sessionStorage.clear();
-    
+
     // finalizarAguardar();
     window.location = "../login.html";
 }
@@ -57,3 +58,14 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
+function AvisoJogadores() {
+
+    swal({
+        title: "Existem jogadores antigos que nao temos dados!",
+        text: "Contamos com a sua compreensão",
+        icon: "info",
+        button: "Ok!",
+        confirmButtonColor: "#D30529",
+    });
+
+}

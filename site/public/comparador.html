@@ -13,9 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body>
+<body onload="AvisoJogadores()">
     <header class="header">
 
         <div class="container">
@@ -23,7 +24,7 @@
                 <ul class="ul-nav">
                     <img src="./assets/nba-F2F-03.png" class="logo-index" alt="Logo-Site"
                         style="width: 80px; margin-right: 30px;" :>
-                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="pos_login.html">Meu Perfil</a></li>
                     <li><a class="item-li-nav" href="comparador.html"><b>Comparador</b></a></li>
                     <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
                 </ul>
@@ -70,11 +71,11 @@
 
     </div>
 
-        <ul id="box_search" class="display_none" style="overflow-y: scroll; display: none;">
-        </ul>
+    <ul id="box_search" class="display_none" style="overflow-y: scroll; display: none;">
+    </ul>
 
-        <ul id="box_search2" class="display_block" style="overflow-y: scroll; display: none;">
-        </ul>
+    <ul id="box_search2" class="display_block" style="overflow-y: scroll; display: none;">
+    </ul>
 
     <div class="container_all_cards">
         <div class="container-card card01" id="container-card">
@@ -154,4 +155,6 @@
         p_text.innerHTML = "";
         container_comparador.innerHTML = "";
     }
+
+
 </script>
