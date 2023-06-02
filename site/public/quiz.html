@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - F2f</title>
+    <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="ShowImgProfile(), validarSessao()">
+
+    <header class="header">
+        <div class="container">
+            <div class="container-atributos">
+                <ul class="ul-nav">
+                    <img src="./assets/nba-F2F-03.png" class="logo-index" alt="Logo-Site"
+                        style="width: 80px;  margin-right: 25px;" :>
+                    <li><a class="item-li-nav" href="index.html">Inicio</a></li>
+                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
+                    <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
+                </ul>
+            </div>
+            <ul class="ul-nav">
+                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                    <a href="#"><button class="button-index button_login"
+                            style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
+                            <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
+                </li>
+                <li>
+                    <a onclick="limparSessao()"><button class="button-logout"><i class="fa fa-sign-out"
+                                aria-hidden="true"></i></button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section>
+
+        Insira os times que voce sabe!<input type="text" id="inputTime"> <br>
+        <button id="BotaoVerificar">Verificar</button>
+        Sua pontuacao atual e de: <span id="pontos"></span>
+
+
+        <div class="section-full">
+
+            <div class="firstRow">
+                <div class="item-container">
+                    <img src="./logos_nba/hawks.webp" alt="" srcset="">
+                    <p id="nomeTime0" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/celtics.webp" alt="" srcset="">
+                    <p id="nomeTime1" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/nets.webp" alt="" srcset="">
+                    <p id="nomeTime2" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/hornets.webp" alt="" srcset="">
+                    <p id="nomeTime3" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/bulls.webp" alt="" srcset="">
+                    <p id="nomeTime4" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="secRow">
+                <div class="item-container">
+                    <img src="./logos_nba/cavaliers.webp" alt="" srcset="">
+                    <p id="nomeTime5" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/mavericks.webp" alt="" srcset="">
+                    <p id="nomeTime6" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/nuggets.webp" alt="" srcset="">
+                    <p id="nomeTime7" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/pistons.webp" alt="" srcset="">
+                    <p id="nomeTime8" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/warrios.webp" alt="" srcset="">
+                    <p id="nomeTime9" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="thirdRow">
+                <div class="item-container">
+                    <img src="./logos_nba/rockets.webp" alt="" srcset="">
+                    <p id="nomeTime10" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/pacres.webp" alt="" srcset="">
+                    <p id="nomeTime11" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/clippers.webp" alt="" srcset="">
+                    <p id="nomeTime12" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/lakers.webp" alt="" srcset="">
+                    <p id="nomeTime13" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/grizzlies.webp" alt="" srcset="">
+                    <p id="nomeTime14" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="quarRow">
+                <div class="item-container">
+                    <img src="./logos_nba/heat.webp" alt="" srcset="">
+                    <p id="nomeTime15" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/bucks.webp" alt="" srcset="">
+                    <p id="nomeTime16" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/timberwolves.webp" alt="" srcset="">
+                    <p id="nomeTime17" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/pelicans.webp" alt="" srcset="">
+                    <p id="nomeTime18" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/knicks.webp" alt="" srcset="">
+                    <p id="nomeTime19" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="fifthRow">
+                <div class="item-container">
+                    <img src="./logos_nba/ock.webp" alt="" srcset="">
+                    <p id="nomeTime20" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/mgic.webp" alt="" srcset="">
+                    <p id="nomeTime21" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/76ers.webp" alt="" srcset="">
+                    <p id="nomeTime22" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/suns.webp" alt="" srcset="">
+                    <p id="nomeTime23" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/blazers.webp" alt="" srcset="">
+                    <p id="nomeTime24" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="sixthRow">
+                <div class="item-container">
+                    <img src="./logos_nba/kings.webp" alt="" srcset="">
+                    <p id="nomeTime25" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/spurs.webp" alt="" srcset="">
+                    <p id="nomeTime26" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/raptors.webp" alt="" srcset="">
+                    <p id="nomeTime27" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/jazz.webp" alt="" srcset="">
+                    <p id="nomeTime28" style="margin-top: 5px;"></p>
+                </div>
+
+                <div class="item-container">
+                    <img src="./logos_nba/wizards.webp" alt="" srcset="">
+                    <p id="nomeTime29" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+<script src="./js/quiz.js"></script>
