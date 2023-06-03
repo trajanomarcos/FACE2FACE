@@ -5,7 +5,7 @@ const jogador02 = document.getElementById("nomeJogador2")
 const button = document.getElementById("button")
 
 function ofBuscar1() {
-    
+
     var jogadorBuscado1 = nomeJogador1.value
     var idplayer = 0
 
@@ -14,13 +14,12 @@ function ofBuscar1() {
     }).then(data => {
 
         console.log(data.data[0].team.full_name + "Time")
-        
-        box_search.innerHTML = "";  
+
+        box_search.innerHTML = "";
 
         for (var i = 0; i < data.data.length; i++) {
 
             var idplayer = data.data[i].id
-            console.log("Entrei")
 
             var firstNameP = (data.data[i].first_name);
             var lastNameP = (data.data[i].last_name);
@@ -30,35 +29,28 @@ function ofBuscar1() {
 
             console.log(fullname)
 
+            // Caractere de escape
+
             box_search.innerHTML += `<li onclick="SearchPlayer1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
-        if(box_search.style.display == 'none'){
+        if (box_search.style.display == 'none') {
             box_search.style.display = 'block'
-        
-        } else if(box_search.style.display == 'block') {
-            
+
+        } else if (box_search.style.display == 'block') {
+
             box_search.style.display = 'none'
-            
+
         } else {
             console.log("Erro ao retirar a box_search;")
         }
         console.log("Cheguei ate aqui!")
 
     })
-    
+
 }
 
 function SearchPlayer1(idplayer, fullname, currentTeam) {
-
-    // var nomePlayer = nomeJogador1.text
-    // var allItems = nomeJogador1.value.split("-");
-    // var idplayerSS = sessionStorage.getItem("idJogadorBuscado");
-    // var idplayer = allItems[0];
-    // var first_name = allItems[1];
-    // var last_name = allItems[2];
-    // console.log(idplayer)
-
 
     fetch(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${idplayer}`).then(resposta => {
         return resposta.json()
@@ -89,15 +81,15 @@ function SearchPlayer1(idplayer, fullname, currentTeam) {
 
 
 function ofBuscar2() {
-    
+
     var jogadorBuscado2 = nomeJogador2.value
     var idplayer = 0
 
     fetch(`https://www.balldontlie.io/api/v1/players?per_page=500&search=${jogadorBuscado2}`).then(resposta => {
         return resposta.json()
     }).then(data => {
-        
-        box_search2.innerHTML = "";  
+
+        box_search2.innerHTML = "";
 
         for (var i = 0; i < data.data.length; i++) {
 
@@ -116,21 +108,21 @@ function ofBuscar2() {
             box_search2.innerHTML += `<li onclick="SearchPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
-        if(box_search2.style.display == 'none'){
+        if (box_search2.style.display == 'none') {
             box_search2.style.display = 'block'
-        
-        } else if(box_search2.style.display == 'block') {
-            
+
+        } else if (box_search2.style.display == 'block') {
+
             box_search2.style.display = 'none'
-            
+
         } else {
             console.log("Erro ao retirar a box_search;")
         }
-       
+
         console.log("Cheguei ate aqui!")
 
     })
-    
+
 }
 
 function SearchPlayer2(idplayer, fullname, currentTeam) {

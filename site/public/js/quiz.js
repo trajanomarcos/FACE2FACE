@@ -91,48 +91,238 @@ var teams = [
     }
 ]
 
-var inputs = document.getElementById(`1`);
+var teamsFinal = [
+    {
+        nomeTime: "Atlanta Hawks",
+        id: 0,
+    },
+    {
+        nomeTime: "Boston Celtics",
+        id: 1,
+    },
+    {
+        nomeTime: "Brooklyn Nets",
+        id: 2,
+    },
+    {
+        nomeTime: "Charlotte Hornets",
+        id: 3,
+    },
+    {
+        nomeTime: "Chicago Bulls",
+        id: 4,
+    },
+    {
+        nomeTime: "Cleveland Cavaliers",
+        id: 5,
+    },
+    {
+        nomeTime: "Dallas Mavericks",
+        id: 6,
+    },
+    {
+        nomeTime: "Denver Nuggets",
+        id: 7,
+    },
+    {
+        nomeTime: "Detroit Pistons",
+        id: 8,
+    },
+    {
+        nomeTime: "Golden State Warriors",
+        id: 9,
+    },
+    {
+        nomeTime: "Houston Rockets",
+        id: 10,
+    },
+    {
+        nomeTime: "Indiana Pacers",
+        id: 11,
+    },
+    {
+        nomeTime: "Los Angeles Clippers",
+        id: 12,
+    },
+    {
+        nomeTime: "Los Angeles Lakers",
+        id: 13,
+    },
+    {
+        nomeTime: "Memphis Grizzlies",
+        id: 14,
+    },
+    {
+        nomeTime: "Miami Heat",
+        id: 15,
+    },
+    {
+        nomeTime: "Milwaukee Bucks",
+        id: 16,
+    },
+    {
+        nomeTime: "Minnesota Timberwolves",
+        id: 17,
+    },
+    {
+        nomeTime: "New Orleans Pelicans",
+        id: 18,
+    },
+    {
+        nomeTime: "New York Knicks",
+        id: 19,
+    },
+    {
+        nomeTime: "Oklahoma City Thunder",
+        id: 20,
+    },
+    {
+        nomeTime: "Orlando Magic",
+        id: 21,
+    },
+    {
+        nomeTime: "Philadelphia 76ers",
+        id: 22,
+    },
+    {
+        nomeTime: "Phoenix Suns",
+        id: 23,
+    },
+    {
+        nomeTime: "Portland Trail Blazers",
+        id: 24,
+    },
+    {
+        nomeTime: "Sacramento Kings",
+        id: 25,
+    },
+    {
+        nomeTime: "San Antonio Spurs",
+        id: 26,
+    },
+    {
+        nomeTime: "Toronto Raptors",
+        id: 27,
+    },
+    {
+        nomeTime: "Utah Jazz",
+        id: 28,
+    },
+    {
+        nomeTime: "Washington Wizards",
+        id: 29,
+    }
+]
+
+var timesCorretos = [];
+
+var inputs = document.getElementById(`inputTime`);
 var button = document.getElementById("BotaoVerificar");
 
 var pontuacao = 0;
 
+var timeout;
 
-button.addEventListener('click', (e) => {
+inputs.addEventListener('click', function click(e){
 
+    var duracao = 10 * 1;
+
+    var display = document.getElementById('timer');
+
+    startTimer(duracao, display)
+
+    inputs.removeEventListener('click', click);
+})
+
+inputs.addEventListener('keyup', (e) => {
 
     var respostaUser = inputTime.value
+    clearTimeout(timeout);
 
-    for(var i = 0; i < teams.length; i++){
+    timeout = setTimeout(function () {
 
-        var Time = document.getElementById(`nomeTime${i}`)
-        if(respostaUser == ''){
-            alert("campo vazio")
+        if (inputs.value.length > 3) {
 
-            return
+            for (var i = 0; i < teams.length; i++) {
+
+                var time = document.getElementById(`nomeTime${i}`)
+                var containerTime = document.getElementById(`time${i}`)
+
+                if (teams[i].nomeTime.includes(respostaUser)) {
+
+                    time.innerHTML = `${teams[i].nomeTime}`
+
+                    time.classList.add('correct')
+
+                    if (timesCorretos.indexOf(teams[i].nomeTime) < 0) {
+                        timesCorretos.push(teams[i].nomeTime)
+                        pontuacao = `${timesCorretos.length} de 30`
+                        pontos.innerHTML = pontuacao
+                        limparInput()
+                        containerTime.classList.add('correct-div');
+                        teamsFinal.splice(i, 1);
+                        return
+                    }
+
+                }
+            }
+
         }
 
-        if(teams[i].nomeTime.includes(respostaUser)){
+        if (timesCorretos.length == 30) {
 
-            console.log("Correto!")
-            Time.innerHTML = `${teams[i].nomeTime}`
-            console.log(teams[i].nomeTime)
-            respostaUser = '';
-            pontuacao++
-            pontos.innerHTML = pontuacao
-            return
-    
-        } else {
-    
-            console.error("Errinho");
-    
+            alert("Parabens voce concluiu o quiz!!")
         }
-    }
-
-
-
+    }, 500)
 
 })
 
-function Verificar() {
+
+function limparInput() {
+
+    document.getElementById('inputTime').value = '';
 
 }
+
+function startTimer(duracao, display) {
+    var timer = duracao, minutos, seconds;
+    var funcTimer = setInterval(function () {
+        minutos = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutos = minutos < 10 ? "0" + minutos : minutos;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.innerHTML = minutos + ":" + seconds;
+        if (--timer < 0 || timesCorretos.length == 30) {
+            clearInterval(funcTimer)
+            StopQuiz()
+            display.innerHTML = "00:00"
+            return
+        }
+    }, 1000);
+
+}
+
+function StopQuiz(){
+
+    for(var i = 0; i < teams.length; i++){
+
+        var time = document.getElementById(`nomeTime${i}`)
+        var containerTime = document.getElementById(`time${i}`)
+
+        if(time.classList.contains('correct')){
+
+            console.log("Classe encontrada na posicao:" + i);
+
+        } else {
+
+            time.classList.add('incorrect');
+            containerTime.classList.add('incorrect-div');
+            time.innerHTML = teams[i].nomeTime;
+        }
+
+    }
+
+    return;
+    
+}
+

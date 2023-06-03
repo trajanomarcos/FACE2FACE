@@ -2,7 +2,7 @@
 function validarSessao() {
     // aguardar();
 
-    AvisoJogadores()
+    // AvisoJogadores()
 
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
@@ -58,14 +58,14 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
-function AvisoJogadores() {
+// function AvisoJogadores() {
 
-    swal({
-        title: "Existem jogadores antigos que nao temos dados!",
-        text: "Contamos com a sua compreensão",
-        icon: "info",
-        button: "Ok!",
-        confirmButtonColor: "#D30529",
-    });
+//     swal({
+//         title: "Existem jogadores antigos que nao temos dados!",
+//         text: "Contamos com a sua compreensão",
+//         icon: "info",
+//         button: "Ok!",
+//         confirmButtonColor: "#D30529",
+//     });
 
-}
+// }

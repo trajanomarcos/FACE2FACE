@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - F2f</title>
     <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -37,174 +40,183 @@
         </div>
     </header>
 
+    <div class="secPrimary">
+        <div class="inputQuiz">
+            Insira os times que voce sabe!<input type="text" id="inputTime" placeholder="Insira o time"> <br>
+        </div>
+        <div class="timerQuiz">
+            <div>
+                <p>Sua pontuacao atual e de: <span id="pontos">0/30</span></p>
+            </div>
+            <p id="timer"></p>
+        </div>
+
+
+    </div>
+
     <section>
-
-        Insira os times que voce sabe!<input type="text" id="inputTime"> <br>
-        <button id="BotaoVerificar">Verificar</button>
-        Sua pontuacao atual e de: <span id="pontos"></span>
-
 
         <div class="section-full">
 
             <div class="firstRow">
-                <div class="item-container">
+                <div class="item-container" id="time0">
                     <img src="./logos_nba/hawks.webp" alt="" srcset="">
-                    <p id="nomeTime0" style="margin-top: 5px;"></p>
+                    <p id="nomeTime0" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time1">
                     <img src="./logos_nba/celtics.webp" alt="" srcset="">
-                    <p id="nomeTime1" style="margin-top: 5px;"></p>
+                    <p id="nomeTime1" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time2">
                     <img src="./logos_nba/nets.webp" alt="" srcset="">
-                    <p id="nomeTime2" style="margin-top: 5px;"></p>
+                    <p id="nomeTime2" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time3">
                     <img src="./logos_nba/hornets.webp" alt="" srcset="">
-                    <p id="nomeTime3" style="margin-top: 5px;"></p>
+                    <p id="nomeTime3" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time4">
                     <img src="./logos_nba/bulls.webp" alt="" srcset="">
-                    <p id="nomeTime4" style="margin-top: 5px;"></p>
+                    <p id="nomeTime4" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 
             <div class="secRow">
-                <div class="item-container">
+                <div class="item-container" id="time5">
                     <img src="./logos_nba/cavaliers.webp" alt="" srcset="">
-                    <p id="nomeTime5" style="margin-top: 5px;"></p>
+                    <p id="nomeTime5" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time6">
                     <img src="./logos_nba/mavericks.webp" alt="" srcset="">
-                    <p id="nomeTime6" style="margin-top: 5px;"></p>
+                    <p id="nomeTime6" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time7">
                     <img src="./logos_nba/nuggets.webp" alt="" srcset="">
-                    <p id="nomeTime7" style="margin-top: 5px;"></p>
+                    <p id="nomeTime7" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time8">
                     <img src="./logos_nba/pistons.webp" alt="" srcset="">
-                    <p id="nomeTime8" style="margin-top: 5px;"></p>
+                    <p id="nomeTime8" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time9">
                     <img src="./logos_nba/warrios.webp" alt="" srcset="">
-                    <p id="nomeTime9" style="margin-top: 5px;"></p>
+                    <p id="nomeTime9" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 
             <div class="thirdRow">
-                <div class="item-container">
+                <div class="item-container" id="time10">
                     <img src="./logos_nba/rockets.webp" alt="" srcset="">
-                    <p id="nomeTime10" style="margin-top: 5px;"></p>
+                    <p id="nomeTime10" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time11">
                     <img src="./logos_nba/pacres.webp" alt="" srcset="">
-                    <p id="nomeTime11" style="margin-top: 5px;"></p>
+                    <p id="nomeTime11" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time12">
                     <img src="./logos_nba/clippers.webp" alt="" srcset="">
-                    <p id="nomeTime12" style="margin-top: 5px;"></p>
+                    <p id="nomeTime12" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time13">
                     <img src="./logos_nba/lakers.webp" alt="" srcset="">
-                    <p id="nomeTime13" style="margin-top: 5px;"></p>
+                    <p id="nomeTime13" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time14">
                     <img src="./logos_nba/grizzlies.webp" alt="" srcset="">
-                    <p id="nomeTime14" style="margin-top: 5px;"></p>
+                    <p id="nomeTime14" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 
             <div class="quarRow">
-                <div class="item-container">
+                <div class="item-container" id="time15">
                     <img src="./logos_nba/heat.webp" alt="" srcset="">
-                    <p id="nomeTime15" style="margin-top: 5px;"></p>
+                    <p id="nomeTime15" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time16">
                     <img src="./logos_nba/bucks.webp" alt="" srcset="">
-                    <p id="nomeTime16" style="margin-top: 5px;"></p>
+                    <p id="nomeTime16" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time17">
                     <img src="./logos_nba/timberwolves.webp" alt="" srcset="">
-                    <p id="nomeTime17" style="margin-top: 5px;"></p>
+                    <p id="nomeTime17" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time18">
                     <img src="./logos_nba/pelicans.webp" alt="" srcset="">
-                    <p id="nomeTime18" style="margin-top: 5px;"></p>
+                    <p id="nomeTime18" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time19">
                     <img src="./logos_nba/knicks.webp" alt="" srcset="">
-                    <p id="nomeTime19" style="margin-top: 5px;"></p>
+                    <p id="nomeTime19" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 
             <div class="fifthRow">
-                <div class="item-container">
+                <div class="item-container" id="time20">
                     <img src="./logos_nba/ock.webp" alt="" srcset="">
-                    <p id="nomeTime20" style="margin-top: 5px;"></p>
+                    <p id="nomeTime20" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time21">
                     <img src="./logos_nba/mgic.webp" alt="" srcset="">
-                    <p id="nomeTime21" style="margin-top: 5px;"></p>
+                    <p id="nomeTime21" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time22">
                     <img src="./logos_nba/76ers.webp" alt="" srcset="">
-                    <p id="nomeTime22" style="margin-top: 5px;"></p>
+                    <p id="nomeTime22" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time23">
                     <img src="./logos_nba/suns.webp" alt="" srcset="">
-                    <p id="nomeTime23" style="margin-top: 5px;"></p>
+                    <p id="nomeTime23" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time24">
                     <img src="./logos_nba/blazers.webp" alt="" srcset="">
-                    <p id="nomeTime24" style="margin-top: 5px;"></p>
+                    <p id="nomeTime24" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 
             <div class="sixthRow">
-                <div class="item-container">
+                <div class="item-container" id="time25">
                     <img src="./logos_nba/kings.webp" alt="" srcset="">
-                    <p id="nomeTime25" style="margin-top: 5px;"></p>
+                    <p id="nomeTime25" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time26">
                     <img src="./logos_nba/spurs.webp" alt="" srcset="">
-                    <p id="nomeTime26" style="margin-top: 5px;"></p>
+                    <p id="nomeTime26" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time27">
                     <img src="./logos_nba/raptors.webp" alt="" srcset="">
-                    <p id="nomeTime27" style="margin-top: 5px;"></p>
+                    <p id="nomeTime27" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time28">
                     <img src="./logos_nba/jazz.webp" alt="" srcset="">
-                    <p id="nomeTime28" style="margin-top: 5px;"></p>
+                    <p id="nomeTime28" style="margin-top: 5px;" class="text-team"></p>
                 </div>
 
-                <div class="item-container">
+                <div class="item-container" id="time29">
                     <img src="./logos_nba/wizards.webp" alt="" srcset="">
-                    <p id="nomeTime29" style="margin-top: 5px;"></p>
+                    <p id="nomeTime29" style="margin-top: 5px;" class="text-team"></p>
                 </div>
             </div>
 

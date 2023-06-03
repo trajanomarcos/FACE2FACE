@@ -247,22 +247,80 @@ ul img {
 }
 
 .item-container img{
-    height: 100px;
+    height: 80px;
 }
 
 .item-container{
     display: flex;
     align-items: center;
-    width: 150px;
+    width: 200px;
     height: 150px;
     justify-content: center;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 10px;
     flex-direction: column;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 input{
-    width: 100px;
+    padding: 0.7vh 3vw;
     margin: 1vh;
     text-align: center;
+}
+
+.inputQuiz{
+    font-size: 20px;
+}
+
+#inputTime::placeholder{
+    font-size: 18px;
+}
+
+.correct {
+    color: rgb(0, 192, 0);
+}
+
+.correct-div{
+
+    border: 1px solid rgb(0, 192, 0);;
+}
+
+.incorrect {
+
+    color: #D30529;
+}
+
+.incorrect-div{
+
+    border: 1px solid #D30529;
+}
+
+.secPrimary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+.secPrimary p {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.item-container p {
+
+    font-size: 14px;
+}
+
+.timerQuiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#timer{
+    margin: 0px 20px;
 }
