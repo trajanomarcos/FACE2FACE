@@ -69,3 +69,50 @@ function fecharModal() {
 //     });
 
 // }
+
+function ShowImgProfile() {
+
+    var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
+
+    if (escolha == 3) {
+
+        img_nav_profile.innerHTML = `<img src="/assets/Jordan_1.svg" alt="" style="width: 35px;" class="nav_profile">`
+
+        img_profile.innerHTML = `<img src="/assets/Jordan_1.svg" alt="" style="width: 80px;" class="profile-icon">`
+
+    } else if (escolha == 1) {
+
+        img_nav_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 35px;" class="nav_profile">`
+
+        img_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 80px;" class="profile-icon">`
+
+
+    } else if (escolha == 2 ) {
+
+        img_nav_profile.innerHTML = `<img src="/assets/Kobe_1.svg" alt="" style="width: 35px;" class="nav_profile">`
+        img_profile.innerHTML = `<img src="/assets/Kobe_1.svg" alt="" style="width: 80px;" class="profile-icon">`
+
+    } else {
+
+        console.log("Erro ao cadastrar profile picture")
+    }
+}
+
+function ChangeProfile() {
+
+    card.style.display = "flex";
+    card.style.position = "fixed";
+}
+
+function Fechar() {
+
+    card.style.display = "none";
+}
+
+function limparSessao() {
+    // aguardar();
+    sessionStorage.clear();
+
+    // finalizarAguardar();
+    window.location = "../index.html";
+}

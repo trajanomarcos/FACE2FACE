@@ -31,9 +31,22 @@ function cadastrar(nome, email, senha, escolha) {
     return database.executar(instrucao);
 }
 
+function resultadoQuiz(idUsuario, pontuacao, minutos, segundos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function resultadoQuiz():", idUsuario, pontuacao, minutos, segundos);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    insert into pontuacaoQuiz values (null, '${pontuacao}', '${minutos}','${segundos}','${idUsuario}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     Verificar,
     cadastrar,
     listar,
+    resultadoQuiz
 };

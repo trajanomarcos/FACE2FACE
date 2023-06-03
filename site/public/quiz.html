@@ -6,14 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - F2f</title>
+    <link rel="stylesheet" href="/css/pos_login.css">
     <link rel="stylesheet" href="/css/quiz.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/funcoes.js"></script>
 </head>
 
-<body onload="ShowImgProfile(), validarSessao()">
+<body onload="ShowImgProfile(), validarSessao()" style="overflow: scroll;">
+
+    <div id="modal">
+    </div>
+    </div>
 
     <header class="header">
         <div class="container">
@@ -39,6 +45,16 @@
             </ul>
         </div>
     </header>
+    <div class="full_card" id="card">
+        <div class="card_profile">
+            <span id="img_profile" style="display: flex;"></span>
+            <a style="cursor: pointer; text-decoration: none; color: black;" href="change_profile.html">
+                <h4 id="b_usuario"></h4>
+            </a>
+            <h5 class="data_registro">Ativo desde:<span id="dt_registo"></span></h5>
+            <button onclick="Fechar()" class="button_card_profile">Fechar</button>
+        </div>
+    </div>
 
     <div class="secPrimary">
         <div class="inputQuiz">
@@ -229,3 +245,4 @@
 </html>
 
 <script src="./js/quiz.js"></script>
+

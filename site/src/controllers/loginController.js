@@ -96,9 +96,49 @@ function cadastrar(req, res) {
         }
     }
 
+    function resultadoQuiz(req, res) {
+        // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+        var id = req.body.idServer;
+        var pontuacao = req.body.pontuacaoServer;
+        var minutos = req.body.minutosServer;
+        var segundos = req.body.segundosServer;
+    
+        console.log("ESCOLHA" + segundos)
+    
+        // Faça as validações dos valores
+        if (id == undefined) {
+            res.status(400).send("Seu id está undefined!");
+        } else if (pontuacao == undefined) {
+            res.status(400).send("Seu pontuacao está undefined!");
+        } else if (minutos == undefined) {
+            res.status(400).send("Sua minutos está undefined!");
+        } else if (segundos == undefined) {
+            res.status(400).send("Sua segundos está undefined!")
+        } else {
+    
+                // Passe os valores como parâmetro e vá para o arquivo loginModel.js
+                loginModel.resultadoQuiz(id, pontuacao, minutos, segundos)
+                    .then(
+                        function (resultado) {
+                            res.json(resultado);
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar ao inserir os dados quiz! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
+            }
+        }
+
     module.exports = {
         Verificar,
         cadastrar,
         listar,
-        testar
+        testar,
+        resultadoQuiz
     }

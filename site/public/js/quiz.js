@@ -223,9 +223,10 @@ var pontuacao = 0;
 
 var timeout;
 
-inputs.addEventListener('click', function click(e){
+inputs.addEventListener('click', function click(e) {
 
-    var duracao = 10 * 1;
+    //Conversão para segundos --- Duracao = (tempoEmSegundos) * (MinutagemQuiz)
+    var duracao = 60 * 4;
 
     var display = document.getElementById('timer');
 
@@ -236,7 +237,7 @@ inputs.addEventListener('click', function click(e){
 
 inputs.addEventListener('keyup', (e) => {
 
-    var respostaUser = inputTime.value
+    var respostaUser = inputTime.value.toLowerCase();
     clearTimeout(timeout);
 
     timeout = setTimeout(function () {
@@ -247,8 +248,9 @@ inputs.addEventListener('keyup', (e) => {
 
                 var time = document.getElementById(`nomeTime${i}`)
                 var containerTime = document.getElementById(`time${i}`)
+                var vetorDeTimes = teams[i].nomeTime.toLocaleLowerCase()
 
-                if (teams[i].nomeTime.includes(respostaUser)) {
+                if (vetorDeTimes.includes(respostaUser)) {
 
                     time.innerHTML = `${teams[i].nomeTime}`
 
@@ -284,32 +286,46 @@ function limparInput() {
 
 }
 
+
 function startTimer(duracao, display) {
-    var timer = duracao, minutos, seconds;
+    var timer = duracao, minutos, segundos;
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
     var funcTimer = setInterval(function () {
         minutos = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+        segundos = parseInt(timer % 60, 10);
         minutos = minutos < 10 ? "0" + minutos : minutos;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.innerHTML = minutos + ":" + seconds;
+        segundos = segundos < 10 ? "0" + segundos : segundos;
+        display.innerHTML = minutos + ":" + segundos;
         if (--timer < 0 || timesCorretos.length == 30) {
             clearInterval(funcTimer)
-            StopQuiz()
-            display.innerHTML = "00:00"
+            AbrirModal()
+            modal.innerHTML += ` 
+            <div class="containerModal">
+                <h1 id="resultadoQuiz">Resultado!</h1>
+                <p id="infoQuiz">Parabens! ${nomeUsuario}</p>
+                <p>Você acertou ${pontuacao}!</p>
+                <p>SEU TEMPO FOI DE:</p>
+                <h3>${minutos} : ${segundos}</h3>
+                <button class="botaoModal" onclick="FecharModal()">Salvar e Sair</button>
+            </div>
+            `
+            StopQuiz(idUsuario, pontuacao, minutos, segundos)
             return
         }
     }, 1000);
 
 }
 
-function StopQuiz(){
+function StopQuiz(idUsuario, pontuacao, minutos, segundos) {
 
-    for(var i = 0; i < teams.length; i++){
+    for (var i = 0; i < teams.length; i++) {
 
         var time = document.getElementById(`nomeTime${i}`)
         var containerTime = document.getElementById(`time${i}`)
 
-        if(time.classList.contains('correct')){
+        if (time.classList.contains('correct')) {
 
             console.log("Classe encontrada na posicao:" + i);
 
@@ -322,7 +338,62 @@ function StopQuiz(){
 
     }
 
+    resultadoQuiz(idUsuario, pontuacao, minutos, segundos)
+
     return;
-    
+
+}
+
+function AbrirModal() {
+
+    modal.style.display = 'flex';
+
+    modal.innerHTML = ``
+}
+function FecharModal() {
+
+    modal.style.display = 'none';
+}
+
+function resultadoQuiz(idUsuario, pontuacao, minutos, segundos) {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var idVar = idUsuario;
+    var pontuacaoVar = pontuacao;
+    var minutosVar = minutos;
+    var segundosVar = segundos;
+
+    // Enviando o valor da nova input
+    fetch("/login/resultadoQuiz", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idServer: idVar,
+            pontuacaoServer: pontuacaoVar,
+            minutosServer: minutosVar,
+            segundosServer: segundosVar,
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+
+            console.log("Dados do quiz cadastrados!!!")
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+    });
+
+    return false;
+
 }
 
