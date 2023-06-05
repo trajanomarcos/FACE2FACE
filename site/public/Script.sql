@@ -17,7 +17,7 @@ insert into jogadorFav values
     (null, 'Jordan');
     
 insert into usuario values (null, 'marcos', 'marcos@email.com', '123', date_format(now(),'%d-%m-%Y'), 1);
-insert into usuario values (null, 'marcoss', 'marcos1@email.commarcos1@email.com', '123', date_format(now(),'%d-%m-%Y'), 3);
+insert into usuario values (null, 'marcoss', 'marcos1@email.com', '123', date_format(now(),'%d-%m-%Y'), 3);
 
 create table Usuario(
 id int primary key auto_increment,
@@ -27,6 +27,15 @@ senha varchar(20),
 datains varchar(50),
 fkEscolha INT,
 CONSTRAINT fkEscolhaU FOREIGN KEY (fkEscolha) REFERENCES jogadorFav(idJogador)
+);
+
+create table pontuacao(
+idPontuacao int primary key auto_increment,
+acertos varchar(50),
+minutos varchar(50),
+segundos varchar(50),
+fkUsuario int,
+constraint fkUsuario foreign key (FkUsuario) references usuario(idUsuario)
 );
 
 create table JogadorFav(
