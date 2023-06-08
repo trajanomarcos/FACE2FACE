@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body onload="AvisoJogadores()">
+<body onload="AvisoJogadores()" id="body">
     <header class="header">
 
         <div class="container">
@@ -108,6 +108,12 @@
 <script src="./js/image.js"></script>
 <script>
 
+    document.getElementById("body").addEventListener("click", function(){
+
+        box_search.style.display = 'none';
+        box_search2.style.display = 'none';
+    })
+
     function ShowImgProfile() {
 
         var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
@@ -122,7 +128,7 @@
 
             img_nav_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 35px;" class="nav_profile">`
 
-            img_profile.innerHTML = `<img src="/assets/Lebron_1.svg" alt="" style="width: 80px;" class="profile-icon">`
+            img_profile.innerHTML = `<img src="/assets/Leron_1.svg" alt="" style="width: 80px;" class="profile-icon">`
 
 
         } else if (escolha == 2) {
