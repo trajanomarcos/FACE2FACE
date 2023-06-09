@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
 </head>
 
-<body onload="ShowImgProfile(), validarSessao()">
+<body onload="mostrarImagemPerfil(), validarSessao()">
     <!--Inicio Header-->
     <header class="header">
         <div class="container">
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <ul class="ul-nav">
-                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                <li style="display: flex; align-items: center;" onclick="verPerfil()">
                     <a href="#"><button class="button-index button_login"
                             style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
                             <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
@@ -87,7 +87,7 @@
 </html>
 <script>
 
-    function ShowImgProfile() {
+    function mostrarImagemPerfil() {
 
         var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
 
@@ -115,11 +115,8 @@
         }
     }
 
-    function toNextPage(){
 
-    }
-
-    function ChangeProfile() {
+    function verPerfil() {
 
         card.style.display = "flex";
         card.style.position = "fixed";

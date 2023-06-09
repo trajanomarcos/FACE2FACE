@@ -4,7 +4,7 @@ const jogador02 = document.getElementById("nomeJogador2")
 
 const button = document.getElementById("button")
 
-function ofBuscar1() {
+function Buscar1() {
 
     var jogadorBuscado1 = nomeJogador1.value
     var idplayer = 0
@@ -31,7 +31,7 @@ function ofBuscar1() {
 
             // Caractere de escape
 
-            box_search.innerHTML += `<li onclick="SearchPlayer1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            box_search.innerHTML += `<li onclick="Buscar1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
         if (box_search.style.display == 'none') {
@@ -50,7 +50,7 @@ function ofBuscar1() {
 
 }
 
-function SearchPlayer1(idplayer, fullname, currentTeam) {
+function Buscar1(idplayer, fullname, currentTeam) {
 
     fetch(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${idplayer}`).then(resposta => {
         return resposta.json()
@@ -80,7 +80,7 @@ function SearchPlayer1(idplayer, fullname, currentTeam) {
 }
 
 
-function ofBuscar2() {
+function Buscar2() {
 
     var jogadorBuscado2 = nomeJogador2.value
     var idplayer = 0
@@ -105,7 +105,7 @@ function ofBuscar2() {
 
             console.log(fullname)
 
-            box_search2.innerHTML += `<li onclick="SearchPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            box_search2.innerHTML += `<li onclick="Buscar2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
         if (box_search2.style.display == 'none') {
@@ -125,7 +125,7 @@ function ofBuscar2() {
 
 }
 
-function SearchPlayer2(idplayer, fullname, currentTeam) {
+function Buscar2(idplayer, fullname, currentTeam) {
 
     // var nomePlayer = nomeJogador1.text
     // var allItems = nomeJogador1.value.split("-");

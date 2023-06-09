@@ -19,7 +19,7 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<body onload="ShowImgProfile(), validarSessao(), obterDadosGrafico()" style="overflow: scroll;">
+<body onload="mostrarImagemPerfil(), validarSessao(), obterDadosGrafico()" style="overflow: scroll;">
 
     <div id="modal">
     </div>
@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <ul class="ul-nav">
-                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                <li style="display: flex; align-items: center;" onclick="verPerfil()">
                     <a href="#"><button class="button-index button_login"
                             style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
                             <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
@@ -253,7 +253,7 @@
 
     let proximaAtualizacao;
 
-    window.onload = ShowImgProfile()
+    window.onload = mostrarImagemPerfil()
     window.onload = validarSessao()
     window.onload = obterDadosGrafico(1);
 

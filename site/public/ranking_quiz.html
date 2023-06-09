@@ -20,35 +20,7 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<body onload="ShowImgProfile(), validarSessao(), obterDadosGrafico()">
-    <!--Inicio Header-->
-    <header class="header">
-        <div class="container">
-            <div class="container-atributos">
-                <ul class="ul-nav">
-                    <img src="./assets/nba-F2F-02.png" class="logo-index" alt="Logo-Site"
-                        style="width: 80px; margin-right: 30px;" :>
-                    <li><a class="item-li-nav" href="pos_login.html">Meu Perfil</a></li>
-                    <li><a class="item-li-nav" href="comparador.html">Comparador</a></li>
-                    <li><a class="item-li-nav" href="curiosidades.html">Curiosidades</a></li>
-                    <li><a class="item-li-nav" href="quiz.html"><b>Quiz</b></a></li>
-                </ul>
-            </div>
-            <ul class="ul-nav">
-                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
-                    <a href="#"><button class="button-index button_login"
-                            style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
-                            <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
-                </li>
-                <li>
-                    <a onclick="limparSessao()"><button class="button-logout"><i class="fa fa-sign-out"
-                                aria-hidden="true"></i></button></a>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <!--Final Header-->
-
+<body onload="mostrarImagemPerfil(), validarSessao(), obterDadosGrafico()">
     <!--Inicio Header-->
     <header class="header">
         <div class="container">
@@ -63,7 +35,7 @@
                 </ul>
             </div>
             <ul class="ul-nav">
-                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                <li style="display: flex; align-items: center;" onclick="verPerfil()">
                     <a href="#"><button class="button-index button_login"
                             style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
                             <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
@@ -108,7 +80,7 @@
 
     let proximaAtualizacao;
 
-    window.onload = ShowImgProfile()
+    window.onload = mostrarImagemPerfil()
     window.onload = validarSessao()
     window.onload = obterDadosGrafico(1);
 

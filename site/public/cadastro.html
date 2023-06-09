@@ -63,7 +63,7 @@
                     <option value="1">LeBron James 👑</option>
                 </select>
 
-                <button class="button_sec_cadastro item_sec" onclick="cadastrar()">CRIAR NOVA CONTA</button>
+                <button class="button_sec_cadastro item_sec" onclick="Cadastrar()">CRIAR NOVA CONTA</button>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
 </html>
 
 <script>
-    function cadastrar() {
+    function Cadastrar() {
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -91,8 +91,6 @@
 
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            // cardErro.style.display = "flex"
-            // mensagem_erro.innerHTML = "Confira os campos!";
 
             swal({
                 title: "Erro!",
@@ -102,7 +100,7 @@
 
             return false;
 
-        } else if (senhaVar.length < 8) {
+        } else if (senhaVar.length <= 8) {
 
             swal({
                 title: "Confira sua senha!",
@@ -128,7 +126,7 @@
         }
 
         // Enviando o valor da nova input
-        fetch("/login/cadastrar", {
+        fetch("/login/Cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -145,9 +143,6 @@
 
             console.log("resposta: ", resposta);
             if (resposta.ok) {
-                // cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
                 swal({
                     title: "Parabens!",
                     text: "Cadastro realizado com sucesso! Redirecionando para tela de Login...",
@@ -158,14 +153,12 @@
                     window.location = "login.html";
                 }, "2000")
 
-                // limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
+
         });
 
         return false;

@@ -31,7 +31,7 @@
                 </ul>
             </div>
             <ul class="ul-nav">
-                <li style="display: flex; align-items: center;" onclick="ChangeProfile()">
+                <li style="display: flex; align-items: center;" onclick="verPerfil()">
                     <a href="#"><button class="button-index button_login"
                             style="width: 180px; align-items: center; display: flex; justify-content: center; height: 60px;">
                             <span id="img_nav_profile" style="display: flex;"></span> Meu perfil</button></a>
@@ -59,13 +59,13 @@
         <div class="stats_jogador1">
             <input id="nomeJogador1" placeholder="Buscar jogador!" class="inputJogadores inputJogadores1">
 
-            <button id="button_p1" class="button_players" onclick="ofBuscar1()">
+            <button id="button_p1" class="button_players" onclick="Buscar1()">
                 <i class="fa fa-search icon"></i></button>
         </div>
 
         <div class="stats_jogador2">
             <input id="nomeJogador2" class="inputJogadores inputJogadores2" placeholder="Buscar jogador!">
-            <button id="button_p2" class="button_players" onclick="ofBuscar2()">
+            <button id="button_p2" class="button_players" onclick="Buscar2()">
                 <i class="fa fa-search icon"></i></button>
         </div>
 
@@ -117,7 +117,7 @@
 
     window.onload = AvisoJogadores()
 
-    function ShowImgProfile() {
+    function mostrarImagemPerfil() {
 
         var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
 
@@ -145,10 +145,10 @@
         }
     }
 
-    window.onload = ShowImgProfile()
+    window.onload = mostrarImagemPerfil()
     window.onload = validarSessao()
 
-    function ChangeProfile() {
+    function verPerfil() {
 
         card.style.display = "flex";
         card.style.position = "fixed";
