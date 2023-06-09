@@ -46,7 +46,6 @@ function finalizarAguardar(texto) {
     }
 }
 
-
 // modal
 function mostrarModal() {
     var divModal = document.getElementById("div_modal");
@@ -58,17 +57,17 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
-// function AvisoJogadores() {
+function AvisoJogadores() {
 
-//     swal({
-//         title: "Existem jogadores antigos que nao temos dados!",
-//         text: "Contamos com a sua compreensão",
-//         icon: "info",
-//         button: "Ok!",
-//         confirmButtonColor: "#D30529",
-//     });
+    swal({
+        title: "Existem jogadores antigos dos quais não temos dados!",
+        text: "Contamos com a sua compreensão",
+        icon: "info",
+        button: "Ok!",
+        confirmButtonColor: "#D30529",
+    });
 
-// }
+}
 
 function ShowImgProfile() {
 

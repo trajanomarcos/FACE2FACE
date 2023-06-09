@@ -158,14 +158,14 @@ ul img {
     transition: ease-in-out 0.3s;
 }
 
-.container-main{
+.container-main {
     display: flex;
     flex-direction: column;
     margin-top: 15vh;
     height: 50vh;
 }
 
-.container-items{
+.container-items {
 
     display: flex;
     flex-direction: column;
@@ -173,13 +173,13 @@ ul img {
     align-items: start;
 }
 
-.container-items-sec{
+.container-items-sec {
     display: flex;
     text-align: center;
     align-items: center;
 }
 
-.button_pos{
+.button_pos {
     background-color: #D30529;
     border: none;
     margin-top: 10px;
@@ -190,19 +190,19 @@ ul img {
     color: white;
 }
 
-.button_pos:hover{
+.button_pos:hover {
 
     cursor: pointer;
     background-color: #7c0116;
     transition: 0.3s;
 }
 
-.container-items2{
+.container-items2 {
 
     margin-top: 5vh;
 }
 
-.container01{
+.container01 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,14 +231,14 @@ ul img {
     width: 50px;
 }
 
-.footer{
+.footer {
     background-color: rgb(29, 66, 138);
     margin-top: 50px;
     width: 100%;
     height: 300px;
 }
 
-.section-full{
+.section-full {
 
     display: flex;
     align-items: center;
@@ -246,11 +246,11 @@ ul img {
     margin: 3vh 0;
 }
 
-.item-container img{
+.item-container img {
     height: 80px;
 }
 
-.item-container{
+.item-container {
     display: flex;
     align-items: center;
     width: 200px;
@@ -263,17 +263,17 @@ ul img {
     margin-left: 5px;
 }
 
-input{
+input {
     padding: 0.7vh 3vw;
     margin: 1vh;
     text-align: center;
 }
 
-.inputQuiz{
+.inputQuiz {
     font-size: 20px;
 }
 
-#inputTime::placeholder{
+#inputTime::placeholder {
     font-size: 18px;
 }
 
@@ -281,9 +281,10 @@ input{
     color: rgb(0, 192, 0);
 }
 
-.correct-div{
+.correct-div {
 
-    border: 1px solid rgb(0, 192, 0);;
+    border: 1px solid rgb(0, 192, 0);
+    ;
 }
 
 .incorrect {
@@ -291,12 +292,12 @@ input{
     color: #D30529;
 }
 
-.incorrect-div{
+.incorrect-div {
 
     border: 1px solid #D30529;
 }
 
-.secPrimary{
+.secPrimary {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -314,22 +315,22 @@ input{
     font-size: 14px;
 }
 
-.timerQuiz{
+.timerQuiz {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
 }
 
-#timer{
+#timer {
     margin: 0px 20px;
 }
 
-#modal{
+#modal {
     width: 100%;
     height: 100%;
-    background-color: rgba(255,255,255, 0.1);
-    backdrop-filter:blur(5px);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
     position: fixed;
     overflow-y: hidden;
     display: flex;
@@ -339,8 +340,8 @@ input{
     display: none;
 }
 
-.containerModal{
-    background-color:#f9f9f9;
+.containerModal {
+    background-color: #f9f9f9;
     border-radius: 20px;
     color: #0E499D;
     border: 5px solid #0E499D;
@@ -351,7 +352,7 @@ input{
     justify-content: center;
 }
 
-.botaoModal{
+.botaoModal {
     background-color: #D30529;
     border: 2px solid #7c0116;
     color: #F9F9F9;
@@ -361,7 +362,7 @@ input{
     font-size: 16px;
 }
 
-.botaoModal:hover{
+.botaoModal:hover {
 
     background-color: #d42240;
     border: 2px solid #45020d;

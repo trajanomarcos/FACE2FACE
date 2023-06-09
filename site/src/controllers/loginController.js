@@ -102,6 +102,7 @@ function cadastrar(req, res) {
         var pontuacao = req.body.pontuacaoServer;
         var minutos = req.body.minutosServer;
         var segundos = req.body.segundosServer;
+        var nomeUsuario = req.body.nomeServer;
     
         console.log("ESCOLHA" + segundos)
     
@@ -117,7 +118,7 @@ function cadastrar(req, res) {
         } else {
     
                 // Passe os valores como parâmetro e vá para o arquivo loginModel.js
-                loginModel.resultadoQuiz(id, pontuacao, minutos, segundos)
+                loginModel.resultadoQuiz(id, pontuacao, minutos, segundos, nomeUsuario)
                     .then(
                         function (resultado) {
                             res.json(resultado);

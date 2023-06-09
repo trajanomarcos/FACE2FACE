@@ -190,13 +190,12 @@ ul img {
 }
 
 .container-graf {
-    padding: 8vh 0;
-    height: 90vh;
+    padding: 8vh 0vh;
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh        ;
+    margin: 4vh        ;
 }
 
 .container-main img {
@@ -237,15 +236,34 @@ ul img {
 }
 
 .container-chart{
-    width: 60vw;
-    height: 60vh;
+    width: 50vw;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5vh;
     margin-top: 5vh;
-    border-radius: 50px;
+    border-radius: 20px;
+}
+
+#div_kpi{
+    background-color: #f9f9f9;
+    width: 40vw;
+    color: #D30529;
+    padding: 2vh;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 3vh;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+
+#div_kpi img{
+    width: 100px;
+    border-radius: 360px;
 }
 
 .graph{

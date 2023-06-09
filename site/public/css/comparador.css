@@ -385,7 +385,8 @@ input:focus {
 
 .swal-overlay {
     background-color: rgba(116, 165, 255, 0.45);
-  }
+    color: white;
+}
 
 .swal-button::after {
     background-color: #99021b;
@@ -395,4 +396,9 @@ input:focus {
     background-color: rgba(14, 73, 157, 1);
     border: 3px solid white;
     border-radius: 10px;
-  }
+    color: white;
+}
+
+.swal-title, .swal-text{
+    color: white
+}

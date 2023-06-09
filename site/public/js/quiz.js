@@ -221,12 +221,16 @@ var button = document.getElementById("BotaoVerificar");
 
 var pontuacao = 0;
 
+
+var nome = sessionStorage.NOME_USUARIO;
+
 var timeout;
 
 inputs.addEventListener('click', function click(e) {
 
     //Conversão para segundos --- Duracao = (tempoEmSegundos) * (MinutagemQuiz)
-    var duracao = 60 * 4;
+    
+    var duracao = 60 * 1;
 
     var display = document.getElementById('timer');
 
@@ -258,8 +262,8 @@ inputs.addEventListener('keyup', (e) => {
 
                     if (timesCorretos.indexOf(teams[i].nomeTime) < 0) {
                         timesCorretos.push(teams[i].nomeTime)
-                        pontuacao = `${timesCorretos.length} de 30`
-                        pontos.innerHTML = pontuacao
+                        pontuacao = `${timesCorretos.length}`
+                        pontos.innerHTML = `${pontuacao}/30`
                         limparInput()
                         containerTime.classList.add('correct-div');
                         teamsFinal.splice(i, 1);
@@ -305,20 +309,23 @@ function startTimer(duracao, display) {
             <div class="containerModal">
                 <h1 id="resultadoQuiz">Resultado!</h1>
                 <p id="infoQuiz">Parabens! ${nomeUsuario}</p>
-                <p>Você acertou ${pontuacao}!</p>
+                <p>Você acertou ${pontuacao} de 30!</p>
                 <p>SEU TEMPO FOI DE:</p>
                 <h3>${minutos} : ${segundos}</h3>
                 <button class="botaoModal" onclick="FecharModal()">Salvar e Sair</button>
+                <button class="botaoModal" onclick="AbrirRanking()">Ver ranking!</button>
             </div>
             `
-            StopQuiz(idUsuario, pontuacao, minutos, segundos)
+            StopQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario)
             return
         }
     }, 1000);
 
 }
 
-function StopQuiz(idUsuario, pontuacao, minutos, segundos) {
+
+
+function StopQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario) {
 
     for (var i = 0; i < teams.length; i++) {
 
@@ -338,7 +345,7 @@ function StopQuiz(idUsuario, pontuacao, minutos, segundos) {
 
     }
 
-    resultadoQuiz(idUsuario, pontuacao, minutos, segundos)
+    resultadoQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario)
 
     return;
 
@@ -350,12 +357,21 @@ function AbrirModal() {
 
     modal.innerHTML = ``
 }
+
 function FecharModal() {
 
     modal.style.display = 'none';
 }
 
-function resultadoQuiz(idUsuario, pontuacao, minutos, segundos) {
+function AbrirRanking(){
+
+    window.location.href = 'ranking_quiz.html';
+    
+}
+
+function resultadoQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario) {
+
+    console.log(nome + "NOME DO USUARIO")
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -363,6 +379,7 @@ function resultadoQuiz(idUsuario, pontuacao, minutos, segundos) {
     var pontuacaoVar = pontuacao;
     var minutosVar = minutos;
     var segundosVar = segundos;
+    var nomeVar = nomeUsuario;
 
     // Enviando o valor da nova input
     fetch("/login/resultadoQuiz", {
@@ -377,6 +394,7 @@ function resultadoQuiz(idUsuario, pontuacao, minutos, segundos) {
             pontuacaoServer: pontuacaoVar,
             minutosServer: minutosVar,
             segundosServer: segundosVar,
+            nomeServer: nomeVar,
         })
     }).then(function (resposta) {
 
