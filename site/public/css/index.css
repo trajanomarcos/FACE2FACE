@@ -4,6 +4,10 @@
     scroll-behavior: smooth;
 }
 
+#navBarLogado{
+    display: none;
+}
+
 .body_index {
     font-family: 'Poppins', sans-serif;
     background-color: black;
@@ -116,6 +120,65 @@ ul img {
 .logo-index {
     margin: 10px;
     height: 50px;
+}
+
+
+.editarperfil {
+
+    margin: 10px 0px;
+}
+
+.button_card_profile {
+
+    margin: 1vh;
+    width: 8vw;
+    height: 4vh;
+    background-color: #0E499D;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+
+}
+
+.button-logout {
+
+    background-color: #D30529;
+    border: none;
+    width: 4vw;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+
+}
+
+.button-logout:hover {
+
+    background-color: #99021b;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.button_card_profile:hover {
+
+    cursor: pointer;
+    background-color: #0E499D;
+    transition: ease-in-out 0.3s;
+}
+
+.nav_profile {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 360px;
+}
+
+.profile-icon {
+
+    border-radius: 360px;
 }
 
 /* Section Principal */

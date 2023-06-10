@@ -31,11 +31,12 @@ CONSTRAINT fkEscolhaU FOREIGN KEY (fkEscolha) REFERENCES jogadorFav(idJogador)
 
 create table pontuacao(
 idPontuacao int primary key auto_increment,
-acertos varchar(50),
+acertos int,
 minutos varchar(50),
 segundos varchar(50),
 fkUsuario int,
-constraint fkUsuario foreign key (FkUsuario) references usuario(idUsuario)
+constraint fkUsuario foreign key (FkUsuario) references usuario(idUsuario),
+nome varchar(50)    
 );
 
 create table JogadorFav(

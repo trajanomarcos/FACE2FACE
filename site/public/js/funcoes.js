@@ -21,6 +21,23 @@ function validarSessao() {
     }
 }
 
+function verificarSessaoAtual(){
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if(idUsuario){
+
+        header.style.display = 'none';
+        navBarLogado.style.display = 'block';
+
+    } else {
+
+        header.style.display = 'block';
+        navBarLogado.style.display = 'none';
+    }
+
+}
+
 function limparSessao() {
     // aguardar();
     sessionStorage.clear();
@@ -69,7 +86,7 @@ function AvisoJogadores() {
 
 }
 
-function ShowImgProfile() {
+function mostrarImagemPerfil() {
 
     var escolha = sessionStorage.getItem("ESCOLHA_USUARIO");
 
