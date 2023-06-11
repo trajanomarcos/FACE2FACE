@@ -31,7 +31,7 @@ function Buscar1() {
 
             // Caractere de escape
 
-            box_search.innerHTML += `<li onclick="Buscar1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            box_search.innerHTML += `<li onclick="BuscarPlayer1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
         if (box_search.style.display == 'none') {
@@ -50,7 +50,7 @@ function Buscar1() {
 
 }
 
-function Buscar1(idplayer, fullname, currentTeam) {
+function BuscarPlayer1(idplayer, fullname, currentTeam) {
 
     fetch(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${idplayer}`).then(resposta => {
         return resposta.json()
@@ -105,7 +105,7 @@ function Buscar2() {
 
             console.log(fullname)
 
-            box_search2.innerHTML += `<li onclick="Buscar2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            box_search2.innerHTML += `<li onclick="BuscarPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
         }
 
         if (box_search2.style.display == 'none') {
@@ -125,7 +125,7 @@ function Buscar2() {
 
 }
 
-function Buscar2(idplayer, fullname, currentTeam) {
+function BuscarPlayer2(idplayer, fullname, currentTeam) {
 
     // var nomePlayer = nomeJogador1.text
     // var allItems = nomeJogador1.value.split("-");
