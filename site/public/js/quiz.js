@@ -290,7 +290,6 @@ function limparInput() {
 
 }
 
-
 function startTimer(duracao, display) {
     var timer = duracao, minutos, segundos;
     var nomeUsuario = sessionStorage.NOME_USUARIO;
@@ -313,7 +312,7 @@ function startTimer(duracao, display) {
                 <p>SEU TEMPO FOI DE:</p>
                 <h3>${minutos} : ${segundos}</h3>
                 <button class="botaoModal" onclick="FecharModal()">Salvar e Sair</button>
-                <button class="botaoModal" onclick="AbrirRanking()">Ver ranking!</button>
+                <button class="botaoModal" onclick="AbrirRanking()">Salvar e Ver ranking!</button>
             </div>
             `
             StopQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario)

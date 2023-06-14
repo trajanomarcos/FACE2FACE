@@ -132,3 +132,9 @@ function limparSessao() {
     // finalizarAguardar();
     window.location = "../index.html";
 }
+
+function verPerfil() {
+
+    card.style.display = "flex";
+    card.style.position = "fixed";
+}
