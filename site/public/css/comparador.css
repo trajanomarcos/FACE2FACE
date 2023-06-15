@@ -255,11 +255,11 @@ ul img {
 
 .inputJogadores {
     font-size: 18px;
-    width: 300px;
+    width: 200px;
     height: 50px;
     border-radius: 10px;
     text-align: center;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 textarea:focus,

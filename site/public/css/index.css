@@ -109,7 +109,7 @@ ul li a {
 .button-index:hover {
     background-color: #f9f9f9;
     color: rgb(14, 43, 107);
-    transition: 0.7s;
+    transition: all 0.7s;
     cursor: pointer;
 }
 
@@ -159,14 +159,14 @@ ul img {
     background-color: #99021b;
     color: white;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .button_card_profile:hover {
 
     cursor: pointer;
     background-color: #0E499D;
-    transition: ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
 }
 
 .nav_profile {
@@ -232,7 +232,7 @@ button a {
 .button_principal:hover {
 
     background-color: #F9F9F9;
-    transition: 0.5s;
+    transition: all 0.5s;
     cursor: pointer;
     color: rgb(14, 73, 157);
     font-weight: bold;

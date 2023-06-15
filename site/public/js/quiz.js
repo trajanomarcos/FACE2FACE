@@ -229,7 +229,7 @@ var timeout;
 inputs.addEventListener('click', function click(e) {
 
     //Conversão para segundos --- Duracao = (tempoEmSegundos) * (MinutagemQuiz)
-    
+
     var duracao = 60 * 1;
 
     var display = document.getElementById('timer');
@@ -274,12 +274,7 @@ inputs.addEventListener('keyup', (e) => {
             }
 
         }
-
-        if (timesCorretos.length == 30) {
-
-            alert("Parabens voce concluiu o quiz!!")
-        }
-    }, 500)
+    }, 400)
 
 })
 
@@ -322,6 +317,18 @@ function startTimer(duracao, display) {
 
 }
 
+function rulesQuiz() {
+    AbrirModal()
+    modal.innerHTML += ` 
+                        <div class="containerModal">
+                            <h1 id="resultadoQuiz">Jogo das Logos!</h1>
+                            <h4 id="infoQuiz">Digite o nome do máximo de logos que conseguir em 1 minuto</h4><br>
+                            <p id="infoQuiz">Ao clicar no campo "Insira o time", o cronômetro será disparado!!! </p>
+                            <p id="infoQuiz">Dica: Não é necessário dar enter, apenas ao digitar o campo será conferido automaticamente!</p>
+                            <button class="botaoModal" onclick="FecharModal()"><b>Entendi!</b></button>
+                        </div>
+            `
+}
 
 
 function StopQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario) {
@@ -362,10 +369,10 @@ function FecharModal() {
     modal.style.display = 'none';
 }
 
-function AbrirRanking(){
+function AbrirRanking() {
 
     window.location.href = 'ranking_quiz.html';
-    
+
 }
 
 function resultadoQuiz(idUsuario, pontuacao, minutos, segundos, nomeUsuario) {

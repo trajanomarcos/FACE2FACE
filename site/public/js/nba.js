@@ -4,55 +4,70 @@ const jogador02 = document.getElementById("nomeJogador2")
 
 const button = document.getElementById("button")
 
+const temporadaJogador1 = document.getElementById("season1")
+
+const temporadaJogador2 = document.getElementById("season2")
+
 function Buscar1() {
 
     var jogadorBuscado1 = nomeJogador1.value
-    var idplayer = 0
 
-    fetch(`https://www.balldontlie.io/api/v1/players?per_page=500&search=${jogadorBuscado1}`).then(resposta => {
-        return resposta.json()
-    }).then(data => {
+    var temporadaBuscada = season1.value
 
-        console.log(data.data[0].team.full_name + "Time")
+    if (temporadaBuscada == null || temporadaBuscada == undefined || temporadaBuscada == '') {
 
-        box_search.innerHTML = "";
+        alert("Confira o campo de temporada!")
 
-        for (var i = 0; i < data.data.length; i++) {
+    } else {
 
-            var idplayer = data.data[i].id
+        fetch(`https://www.balldontlie.io/api/v1/players?per_page=500&search=${jogadorBuscado1}`).then(resposta => {
+            return resposta.json()
+        }).then(data => {
 
-            var firstNameP = (data.data[i].first_name);
-            var lastNameP = (data.data[i].last_name);
-            var currentTeam = (data.data[i].team.full_name)
+            console.log(data.data[0].team.full_name + "Time")
 
-            var fullname = (firstNameP + " " + lastNameP);
+            box_search.innerHTML = "";
 
-            console.log(fullname)
+            for (var i = 0; i < data.data.length; i++) {
 
-            // Caractere de escape
+                var idplayer = data.data[i].id
 
-            box_search.innerHTML += `<li onclick="BuscarPlayer1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
-        }
+                var firstNameP = (data.data[i].first_name);
+                var lastNameP = (data.data[i].last_name);
+                var currentTeam = (data.data[i].team.full_name)
 
-        if (box_search.style.display == 'none') {
-            box_search.style.display = 'block'
+                var fullname = (firstNameP + " " + lastNameP);
 
-        } else if (box_search.style.display == 'block') {
+                console.log(fullname)
 
-            box_search.style.display = 'none'
+                // Caractere de escape
 
-        } else {
-            console.log("Erro ao retirar a box_search;")
-        }
-        console.log("Cheguei ate aqui!")
+                box_search.innerHTML += `<li onclick="BuscarPlayer1(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP1(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            }
 
-    })
+            if (box_search.style.display == 'none') {
+                box_search.style.display = 'block'
+
+            } else if (box_search.style.display == 'block') {
+
+                box_search.style.display = 'none'
+
+            } else {
+                console.log("Erro ao retirar a box_search;")
+            }
+            console.log("Cheguei ate aqui!")
+
+        })
+
+    }
 
 }
 
 function BuscarPlayer1(idplayer, fullname, currentTeam) {
 
-    fetch(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${idplayer}`).then(resposta => {
+    var temporada1 = temporadaJogador1.value
+
+    fetch(`https://www.balldontlie.io/api/v1/season_averages?season=${temporada1}&player_ids[]=${idplayer}`).then(resposta => {
         return resposta.json()
     }).then(data => {
 
@@ -62,7 +77,7 @@ function BuscarPlayer1(idplayer, fullname, currentTeam) {
 
                 <ul class="ul-infos-card">
                     <li>Nome: ${fullname}</li>
-                    <li>Time: ${currentTeam}</li>   
+                    <li>Time atual: ${currentTeam}</li>   
                     <li>Season: ${data.data[0].season}</li>
                     <li>Rebotes: ${data.data[0].reb}</li>
                     <li>Assistencias: ${data.data[0].ast}</li>
@@ -83,60 +98,64 @@ function BuscarPlayer1(idplayer, fullname, currentTeam) {
 function Buscar2() {
 
     var jogadorBuscado2 = nomeJogador2.value
-    var idplayer = 0
 
-    fetch(`https://www.balldontlie.io/api/v1/players?per_page=500&search=${jogadorBuscado2}`).then(resposta => {
-        return resposta.json()
-    }).then(data => {
+    var temporadaBuscada = season2.value
 
-        box_search2.innerHTML = "";
+    if (temporadaBuscada == null || temporadaBuscada == undefined || temporadaBuscada == '') {
 
-        for (var i = 0; i < data.data.length; i++) {
+        alert("Confira o campo de temporada!")
 
-            var idplayer = data.data[i].id
-            console.log("Entrei")
+    } else {
 
-            var firstNameP = (data.data[i].first_name);
-            var lastNameP = (data.data[i].last_name);
+        fetch(`https://www.balldontlie.io/api/v1/players?per_page=500&search=${jogadorBuscado2}`).then(resposta => {
+            return resposta.json()
+        }).then(data => {
 
-            var currentTeam = (data.data[i].team.full_name)
+            box_search2.innerHTML = "";
 
-            var fullname = (firstNameP + " " + lastNameP);
+            for (var i = 0; i < data.data.length; i++) {
 
-            console.log(fullname)
+                var idplayer = data.data[i].id
+                console.log("Entrei")
 
-            box_search2.innerHTML += `<li onclick="BuscarPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
-        }
+                var firstNameP = (data.data[i].first_name);
+                var lastNameP = (data.data[i].last_name);
 
-        if (box_search2.style.display == 'none') {
-            box_search2.style.display = 'block'
+                var currentTeam = (data.data[i].team.full_name)
 
-        } else if (box_search2.style.display == 'block') {
+                var fullname = (firstNameP + " " + lastNameP);
 
-            box_search2.style.display = 'none'
+                console.log(fullname)
 
-        } else {
-            console.log("Erro ao retirar a box_search;")
-        }
+                box_search2.innerHTML += `<li onclick="BuscarPlayer2(${idplayer}, \'${fullname}\', \'${currentTeam}\');BuscarP2(\'${fullname}\')" class="item_search_ul">${firstNameP} ${lastNameP}</li>`
+            }
 
-        console.log("Cheguei ate aqui!")
+            if (box_search2.style.display == 'none') {
+                box_search2.style.display = 'block'
 
-    })
+            } else if (box_search2.style.display == 'block') {
+
+                box_search2.style.display = 'none'
+
+            } else {
+                console.log("Erro ao retirar a box_search;")
+            }
+
+            console.log("Cheguei ate aqui!")
+
+        })
+
+    }
+
+
 
 }
 
 function BuscarPlayer2(idplayer, fullname, currentTeam) {
 
-    // var nomePlayer = nomeJogador1.text
-    // var allItems = nomeJogador1.value.split("-");
-    // var idplayerSS = sessionStorage.getItem("idJogadorBuscado");
-    // var idplayer = allItems[0];
-    // var first_name = allItems[1];
-    // var last_name = allItems[2];
-    // console.log(idplayer)
+    var temporada2 = temporadaJogador2.value
 
-
-    fetch(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${idplayer}`).then(resposta => {
+    fetch(`https://www.balldontlie.io/api/v1/season_averages?season=${temporada2}&player_ids[]=${idplayer}`).then(resposta => {
         return resposta.json()
     }).then(data => {
 
@@ -146,7 +165,7 @@ function BuscarPlayer2(idplayer, fullname, currentTeam) {
 
                 <ul class="ul-infos-card">
                     <li>Nome: ${fullname}
-                    <li>Time: ${currentTeam}</li>
+                    <li>Time atual: ${currentTeam}</li>
                     <li>Season: ${data.data[0].season}</li>
                     <li>Rebotes: ${data.data[0].reb}</li>
                     <li>Assistencias: ${data.data[0].ast}</li>

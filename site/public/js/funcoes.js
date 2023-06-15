@@ -77,7 +77,7 @@ function fecharModal() {
 function AvisoJogadores() {
 
     swal({
-        title: "Existem jogadores antigos dos quais não temos dados!",
+        title: "Existem jogadores dos quais não temos dados! (1946-2022)",
         text: "Contamos com a sua compreensão",
         icon: "info",
         button: "Ok!",

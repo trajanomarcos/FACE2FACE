@@ -77,6 +77,80 @@
       "college": "Memphis"
     },
     {
+      "tid": 999,
+      "name": "Anderson Varejao",
+      "jerseyNumber": "1",
+      "ratings": [
+        {
+          "hgt": 33,
+          "stre": 45,
+          "spd": 70,
+          "jmp": 69,
+          "endu": 50,
+          "ins": 75,
+          "dnk": 90,
+          "ft": 69,
+          "fg": 72,
+          "tp": 39,
+          "diq": 30,
+          "oiq": 60,
+          "drb": 68,
+          "pss": 50,
+          "reb": 50
+        }
+      ],
+      "pos": "PG",
+      "hgt": 74,
+      "weight": 200,
+      "contract": {
+        "amount": 1,
+        "exp": 2030
+      },
+      "born": {
+        "year": 1989,
+        "loc": "Chicago, IL"
+      },
+      "imgURL": "https://cdn.nba.com/headshots/nba/latest/1040x760/2760.png",
+      "college": "Memphis"
+    },
+    {
+      "tid": 998,
+      "name": "Leandro Barbosa",
+      "jerseyNumber": "1",
+      "ratings": [
+        {
+          "hgt": 33,
+          "stre": 45,
+          "spd": 70,
+          "jmp": 69,
+          "endu": 50,
+          "ins": 75,
+          "dnk": 90,
+          "ft": 69,
+          "fg": 72,
+          "tp": 39,
+          "diq": 30,
+          "oiq": 60,
+          "drb": 68,
+          "pss": 50,
+          "reb": 50
+        }
+      ],
+      "pos": "PG",
+      "hgt": 74,
+      "weight": 200,
+      "contract": {
+        "amount": 1,
+        "exp": 2030
+      },
+      "born": {
+        "year": 1989,
+        "loc": "Chicago, IL"
+      },
+      "imgURL": "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2166.png&w=350&h=254",
+      "college": "Memphis"
+    },
+    {
       "tid": 20,
       "name": "Rudy Gobert",
       "jerseyNumber": "27",
